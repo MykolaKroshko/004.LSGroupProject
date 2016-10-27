@@ -6,6 +6,10 @@ block vars
 block content
   .headerContainer
     header.header header
-    .search search
+    .search
+      form.search_form(action='#')
+        span.search_icon
+        input.search_term#search(placeholder="Исследовать мир")
+
   .content content
-  footer.footer footer
+  include ../modules/_mainFooter

@@ -1,0 +1,23 @@
+.headerContainer,.footer{
+  background: url(../img/back.jpg) no-repeat center;
+  background-size: cover;
+}
+.headerContainer{
+}
+.header{
+  padding: $indentMultiplier $indentMultiplier*2;
+  color: $lightTextColor;
+}
+.search{
+  padding: $indentMultiplier;
+  background-color: #f1f1f1;
+  &_term{
+    width: 100%;
+    padding: $indentMultiplier $indentMultiplier*2 $indentMultiplier $indentMultiplier*4.5;
+    border: none;
+    border-radius: $indentMultiplier*2;
+    outline: none;
+  }
+}
+@import 'modules/mainFooter.scss';
+
