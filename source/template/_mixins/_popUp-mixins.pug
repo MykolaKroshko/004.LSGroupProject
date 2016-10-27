@@ -1,0 +1,13 @@
+mixin popUp(popUpType, popUpHeaderText)
+    if popUpType == 'editUser'
+        .popUp__header
+            h3 #{popUpHeaderText}
+            i.fa.fa-close.popUp__close
+        include ../_includes/_popUpContent-editUser
+        include ../_includes/_popUpFooter-saveCancel
+
+
+mixin social_edit__item(socialName, socialNameInput)
+    li.social_edit__item
+        label.popUp__content__label #{socialName}
+        input(type='text', name='socialNameInput', placeholder=`${socialName}`)
