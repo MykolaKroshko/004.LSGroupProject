@@ -134,7 +134,7 @@ textarea{
   }
 }
 
-.bio__item, .social_edit__item{
+.bio__item, .social_edit__item, [class^='album__add__']{
   margin: 15px 0;
 }
 
@@ -149,6 +149,10 @@ textarea{
     &_action{
       font-family:proxima_italic;
     }
+  }
+
+  &-cover{
+    align-items: center;
   }
 }
 
