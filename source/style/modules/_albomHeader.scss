@@ -1,0 +1,18 @@
+.albom{
+  &_header_main{
+    display: flex;
+
+  }
+  &_photo{
+    display: inline-block;
+    margin: 0;
+  }
+  &_name{
+    display: inline-block;
+    flex: 1;
+    text-align: left;
+    display: flex;
+    align-items: center;
+
+  }
+}

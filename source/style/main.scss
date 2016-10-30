@@ -1,5 +1,5 @@
-@import 'common/fonts.scss';
-@import 'common/variables.scss';
+@import 'common/fonts';
+@import 'common/variables';
 *{
   box-sizing:inherit;
 }
@@ -38,6 +38,6 @@ button{
   border: none;
   background: transparent;
 }
-@import 'mainPage.scss';
+@import 'mainPage';
 @import 'popUp';
-@import 'common/slider.scss';
+@import 'common/slider';

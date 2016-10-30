@@ -1,0 +1,15 @@
+.headerContainer
+  header.header
+    .albom_header_main
+      .header_photo.button_shadow.albom_photo
+        img.header_image(src="assets/img/default_avatar.jpg")
+      .header_name.albom_name
+        h4 Крошко Николай Юриевич
+    .header_about
+      p Я веб разработчик. Мне 24 года. Люблю путешествия, кодинг, фриланс и активный отдых.
+  .search
+    form.search_form#search(action='#')
+      span.search_icon
+        svg
+          use.search_svg(xlink:href="assets/img/sprite.svg#search")
+      input.search_term(placeholder="Исследовать мир")
