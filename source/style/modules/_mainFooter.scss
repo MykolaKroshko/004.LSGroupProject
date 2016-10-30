@@ -1,0 +1,24 @@
+.footer{
+  color: $lightTextColor;
+  background-position: center 75%;
+  text-align: center;
+  &_copyright{
+    color: rgba($lightTextColor, .4);
+  }
+  & div{
+    padding: $indentMultiplier;
+  }
+}
+.footerContainer{
+  background-color: rgba(#000, .8);
+}
+.topArrow{
+  width: 27px;
+  height: 21px;
+  &_svg{
+    fill: rgba(#fff, .8);
+  }
+  &:hover &_svg{
+    fill: #fff;
+  }
+}

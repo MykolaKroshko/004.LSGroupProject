@@ -1,0 +1,45 @@
+.headerContainer
+  header.header
+    .header_buttons
+      span.button.button_left.button_shadow#quit
+        svg
+          use.button_svg(xlink:href="assets/img/sprite.svg#off")
+        span.button_text Выйти
+      .header_photo.button_shadow
+        img.header_image(src="assets/img/default_avatar.jpg")
+      span.button.button_right.button_shadow#edit
+        svg
+          use.button_svg(xlink:href="assets/img/sprite.svg#edit")
+        span.button_text Редактировать
+    .header_name
+      h4 Крошко Николай Юриевич
+    .header_about
+      p Я веб разработчик. Мне 24 года. Люблю путешествия, кодинг, фриланс и активный отдых.
+    .header_socials
+      ul.socials_list
+        li.socials_item
+          a.socials_link(href="#" target="_blank")
+            svg
+              use.socials_svg(xlink:href="assets/img/sprite.svg#soc_vk")
+        li.socials_item
+          a.socials_link(href="#" target="_blank")
+            svg
+              use.socials_svg(xlink:href="assets/img/sprite.svg#soc_fb")
+        li.socials_item
+          a.socials_link(href="#" target="_blank")
+            svg
+              use.socials_svg(xlink:href="assets/img/sprite.svg#soc_twitter")
+        li.socials_item
+          a.socials_link(href="#" target="_blank")
+            svg
+              use.socials_svg(xlink:href="assets/img/sprite.svg#social_google")
+        li.socials_item
+          a.socials_link(href="#" target="_blank")
+            svg
+              use.socials_svg(xlink:href="assets/img/sprite.svg#soc_email")
+  .search
+    form.search_form#search(action='#')
+      span.search_icon
+        svg
+          use.search_svg(xlink:href="assets/img/sprite.svg#search")
+      input.search_term(placeholder="Исследовать мир")
