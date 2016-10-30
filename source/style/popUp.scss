@@ -50,6 +50,12 @@
 
     &__label{
       font-family:proxima_bold;
+
+      &__value{
+        margin-left:25px;
+        font-size: 16px;
+        font-family:proxima_light;
+      }
     }
   }
 
@@ -111,7 +117,7 @@
 
 }
 
-input, textarea {
+.input, .textarea {
   border: 1px solid $color-grey;
   background-color: $color-white;
   height: 40px;
@@ -128,6 +134,8 @@ input, textarea {
     color: rgba($color-text, 1);
 
   }
+
+  &{}
 }
 
 textarea{
@@ -180,4 +188,67 @@ textarea{
   background-color: $color-white;
   text-align: center;
   line-height: 45px;
+}
+
+.photo__add__form {
+  background: $color-lightgrey;
+  min-height: 280px;
+  border: 3px dashed $color-grey;
+  color: $color-darkgrey;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  &-empty {
+    align-items: center;
+    align-self: center;
+    //display: none;
+    &__camera{
+      font-size: 30px;
+    }
+  }
+
+  &-filled{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: none;
+  }
+
+}
+
+.photo__add__form{
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  &__item {
+    border-radius: 1px;
+    width: 59px;
+    height: 59px;
+    margin: 4px;
+    position: relative;
+
+    &__close{
+      position: absolute;
+      top:0;
+      right: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 3px solid rgb(249, 249, 249);
+      background: $color-red;
+      transform: translate(50%, -50%);
+      display: flex;
+      color: $color-white;
+      justify-content: center;
+      align-items: center;
+      font-size: 10px;
+    }
+
+  }
+
 }

@@ -17,6 +17,12 @@ mixin popUp(popUpType, popUpHeaderText)
             i.fa.fa-close.popUp__close
         include ../_includes/_popUpContent-editPhoto
         include ../_includes/_popUpFooter-saveCancelDelete
+    else if popUpType == 'addPhoto'
+        .popUp__header
+            h3 #{popUpHeaderText}
+            i.fa.fa-close.popUp__close
+        include ../_includes/_popUpContent-addPhoto
+        include ../_includes/_popUpFooter-saveCancel
 
 
 mixin social_edit__item(socialName, socialNameInput)
