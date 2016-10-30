@@ -4,8 +4,17 @@ block vars
   - var title = 'Main'
 
 block content
-  .headerContainer
-    header.header header
-    .search search
-  .content content
-  footer.footer footer
+  include ../modules/_mainHeader
+  .content
+    section.section.worldNew
+      .section_titleContainer
+        h3.section_title Новое в мире
+        button.showMore.staticButton(type="button") Показать еще
+    section.section.alboms
+      .section_titleContainer
+        h3.section_title Мои альбомы
+        span.button.button_right.button_shadow#quit
+          svg
+            use.button_svg(xlink:href="assets/img/sprite.svg#add")
+          span.button_text Добавить
+  include ../modules/_mainFooter
