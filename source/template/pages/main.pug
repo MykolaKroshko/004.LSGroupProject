@@ -1,20 +1,13 @@
 extends ../_template
 
 block vars
-  - var title = 'Main'
+	- var title = 'Main'
 
 block content
-  include ../modules/_mainHeader
-  .content
-    section.section.worldNew
-      .section_titleContainer
-        h3.section_title Новое в мире
-        button.showMore.staticButton(type="button") Показать еще
-    section.section.alboms
-      .section_titleContainer
-        h3.section_title Мои альбомы
-        span.headerButton.headerButton_right.button_shadow#quit
-          svg
-            use.headerButton_svg(xlink:href="assets/img/sprite.svg#add")
-          span.headerButton_text Добавить
-  include ../modules/_mainFooter
+	.headerContainer
+		header.header header
+		.search search
+		.content content
+		include ../main/new_in_world
+		include ../main/my_album
+	footer.footer footer

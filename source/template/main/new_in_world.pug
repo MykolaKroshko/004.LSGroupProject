@@ -1,0 +1,26 @@
+.new-in-world
+	.new-in-world__title Новое в мире
+	.new-photo
+		.new-photo__img
+			img(src="/assets/img/main_photo1.png", alt="new photo")
+			.new-photo__img__loupe
+				i(class='fa fa-search-plus' aria-hidden='true')
+		.new-photo__about
+			.new-photo__about__wrapp-imgs
+				.new-photo__about__img
+					img(src="/assets/img/avatar.png", alt="man")
+			.new-photo__about__detail.clearfix
+				.new-photo__about__detail__description Путешествие на лодке по озеру
+				.new-photo__about__detail__like.clearfix
+					.new-photo__about__detail__like__amount.clearfix
+						i.new-photo__about__detail__like__amount_item(class='fa fa-commenting' aria-hidden='true')
+						| 9
+					.new-photo__about__detail__like__amount
+						i.new-photo__about__detail__like__amount_item(class='fa fa-heart' aria-hidden='true')
+						| 15
+		.new-photo__albom.clearfix
+			.new-photo__albom__name
+				i.new-photo__albom__name_img(class='fa fa-folder' aria-hidden='true')
+				| Прогулки по воде
+	.show-more
+		a.show-more__btn(href="") Показать еще
