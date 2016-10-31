@@ -1,7 +1,7 @@
 extends ../_template
 
 block vars
-	- var title = 'Main'
+  - var title = 'Main'
 
 block content
   .content
@@ -10,7 +10,6 @@ block content
       .section_titleContainer
         h3.section_title Новое в мире
         button.showMore.staticButton(type="button") Показать еще
-      include ../main/new_in_world
     section.section.alboms
       .section_titleContainer
         h3.section_title Мои альбомы
@@ -18,5 +17,4 @@ block content
           svg
             use.headerButton_svg(xlink:href="assets/img/sprite.svg#add")
           span.headerButton_text Добавить
-      include ../main/my_album
   include ../modules/_mainFooter

@@ -1,5 +1,8 @@
-@import 'common/fonts.scss';
-@import 'common/variables.scss';
+@import 'common/fonts';
+@import 'common/variables';
+*{
+  box-sizing:inherit;
+}
 html{
   min-width: 320px;
   font: 14px/1.5 proxima_light;
@@ -57,8 +60,6 @@ body{
   flex: 1;
 }
 @import 'mainPage';
-@import 'main/new_in_world.scss';
-@import 'main/my_album.scss';
 @import 'albumPage';
 @import 'popUp';
 @import 'common/slider';

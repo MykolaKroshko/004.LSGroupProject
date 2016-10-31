@@ -18,7 +18,7 @@
          url('../fonts/proxima_nova_semibold.woff') format('woff'),
          url('../fonts/proxima_nova_semibold.ttf') format('truetype'),
          url('../fonts/proxima_nova_semibold.otf') format('otf'),
-         url('proxima_nova_semibold.svg#proxima_nova_ltsemibold') format('svg');
+         url('../fonts/proxima_nova_semibold.svg#proxima_nova_ltsemibold') format('svg');
     font-weight: bold;
     font-style: normal;
 }
@@ -46,3 +46,6 @@
     font-weight: normal;
     font-style: italic;
 }
+
+//font-awesome
+@import "font-awesome/scss/font-awesome";
