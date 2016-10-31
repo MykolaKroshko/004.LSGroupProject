@@ -1,12 +1,12 @@
 extends ../_template
 
 block vars
-  - var title = 'Albom'
+  - var title = 'album'
 
 block content
   .content
-    include ../modules/_albomHeader
-    section.albom_content.section
+    include ../modules/_albumHeader
+    section.album_content.section
       span.headerButton.headerButton_right.button_shadow#addPhoto
         svg
           use.headerButton_svg(xlink:href="assets/img/sprite.svg#add")
