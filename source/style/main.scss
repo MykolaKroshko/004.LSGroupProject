@@ -2,7 +2,63 @@
 @import 'common/variables.scss';
 html{
   min-width: 320px;
+  font: 14px/1.5 proxima_light;
+  color: $darkTextColor;
+  box-sizing: border-box;
 }
-@import 'mainPage.scss';
+h2,h3,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+}
+h3{
+  font: 30px/1.333333 panton;
+}
+h4{
+  font: 21px/1 panton;
+}
+h5{
+  font: 18px/1.333333 proxima_bold;
+}
+h6{
+  font: 16px/1.3125 panton;
+}
+p{
+  margin: $indentMultiplier 0;
+}
+ul,ol{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+svg{
+  width: 100%;
+  height: 100%;
+}
+button{
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+html,body{
+  min-height: 100vh;
+}
+body{
+  display: flex;
+  flex-direction: column;
+}
+.content{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.section{
+  flex: 1;
+}
+@import 'mainPage';
 @import 'main/new_in_world.scss';
 @import 'main/my_album.scss';
+@import 'albumPage';
+@import 'popUp';
+@import 'common/slider';

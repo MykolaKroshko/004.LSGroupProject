@@ -1,0 +1,20 @@
+<<<<<<< HEAD
+=======
+@import 'modules/_mainHeader';
+@import 'modules/_mainButtons';
+.section{
+  padding: $indentMultiplier;
+  text-align: center;
+  padding-bottom:  $indentMultiplier*3;
+  &_title{
+    margin: $indentMultiplier*2 0;
+  }
+  &_titleContainer{
+    position: relative;
+  }
+}
+.alboms{
+  background-color: #f6f6f6;
+}
+@import 'modules/_mainFooter';
+>>>>>>> mainContainer
