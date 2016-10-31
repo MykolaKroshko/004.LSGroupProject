@@ -1,9 +1,10 @@
 extends ../_template
 
 block vars
-  - var title = 'Albom'
+  - var title = 'Album'
 
 block content
+  include ../_mixins/_popUp-mixins
   include ../modules/_albomHeader
   //- .content
   //-   section.section.worldNew
@@ -17,4 +18,5 @@ block content
   //-         svg
   //-           use.button_svg(xlink:href="assets/img/sprite.svg#add")
   //-         span.button_text Добавить
-  include ../modules/_mainFooter
+  include ../modules/_mainFooterb
+  //include ../_includes/popUp__addAlbum
