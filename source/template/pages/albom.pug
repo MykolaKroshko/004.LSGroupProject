@@ -4,17 +4,11 @@ block vars
   - var title = 'Albom'
 
 block content
-  include ../modules/_albomHeader
-  //- .content
-  //-   section.section.worldNew
-  //-     .section_titleContainer
-  //-       h3.section_title Новое в мире
-  //-       button.showMore.staticButton(type="button") Показать еще
-  //-   section.section.alboms
-  //-     .section_titleContainer
-  //-       h3.section_title Мои альбомы
-  //-       span.button.button_right.button_shadow#quit
-  //-         svg
-  //-           use.button_svg(xlink:href="assets/img/sprite.svg#add")
-  //-         span.button_text Добавить
+  .content
+    include ../modules/_albomHeader
+    section.albom_content.section
+      span.headerButton.headerButton_right.button_shadow#addPhoto
+        svg
+          use.headerButton_svg(xlink:href="assets/img/sprite.svg#add")
+        span.headerButton_text Добавить
   include ../modules/_mainFooter

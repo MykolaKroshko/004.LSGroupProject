@@ -1,0 +1,12 @@
+extends ../_template
+
+block vars
+  - var title = 'User'
+
+block content
+  .content
+    include ../modules/_userHeader
+    section.section.alboms
+      .section_titleContainer
+        h3.section_title Альбомы
+  include ../modules/_mainFooter

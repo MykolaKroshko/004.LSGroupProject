@@ -6,37 +6,16 @@
           use.headerButton_svg(xlink:href="assets/img/sprite.svg#off")
         span.headerButton_text Выйти
       .header_photo.button_shadow
-        img.header_image(src="assets/img/default_avatar.jpg")
+        img.header_image#userPhoto(src="assets/img/default_avatar.jpg")
       span.headerButton.headerButton_right.button_shadow#edit
         svg
           use.headerButton_svg(xlink:href="assets/img/sprite.svg#edit")
         span.headerButton_text Редактировать
     .header_name
-      h4 Крошко Николай Юриевич
+      h4#userName Крошко Николай Юриевич
     .header_about
-      p Я веб разработчик. Мне 24 года. Люблю путешествия, кодинг, фриланс и активный отдых.
-    .header_socials
-      ul.socials_list
-        li.socials_item
-          a.socials_link(href="#" target="_blank")
-            svg
-              use.socials_svg(xlink:href="assets/img/sprite.svg#soc_vk")
-        li.socials_item
-          a.socials_link(href="#" target="_blank")
-            svg
-              use.socials_svg(xlink:href="assets/img/sprite.svg#soc_fb")
-        li.socials_item
-          a.socials_link(href="#" target="_blank")
-            svg
-              use.socials_svg(xlink:href="assets/img/sprite.svg#soc_twitter")
-        li.socials_item
-          a.socials_link(href="#" target="_blank")
-            svg
-              use.socials_svg(xlink:href="assets/img/sprite.svg#social_google")
-        li.socials_item
-          a.socials_link(href="#" target="_blank")
-            svg
-              use.socials_svg(xlink:href="assets/img/sprite.svg#soc_email")
+      p#userAbout Я веб разработчик. Мне 24 года. Люблю путешествия, кодинг, фриланс и активный отдых.
+    include ../common/_headerSocials
   .search
     form.search_form#search(action='#')
       span.search_icon
