@@ -24,6 +24,7 @@ img{
 }
 .new-photo{
 	margin: 0 auto;
+	margin-bottom: 10px;
 	width: 300px;
 	min-height: 305px;
 	border-radius:3px;
@@ -91,7 +92,7 @@ img{
 		}
 
 	}
-	&__albom{
+	&__albom{ 
 		background: #f6f6f6;
 		padding:10px;
 		&__name{
