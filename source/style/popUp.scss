@@ -5,28 +5,31 @@
   right: 0;
   bottom: 0;
   background: rgba($color-black, .9);
-  //width: 100%;
-  //height: 100%;
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 100;
+
+  &-top{
+    background: rgba($color-white, .9);
+    align-items: flex-start;
+
+  }
 }
 
 .popUp{
-  //position: absolute;
-  //top: 0;
-  //left: 0;
-  //right: 0;
-  //bottom: 0;
   background: #fff;
   margin: 0 10px;
   width: 100%;
   font-size: 14px;
   max-height: 100%;
   overflow-y: scroll;
+
+  &-top{
+    margin: 0;
+  }
 
   &__header, &__footer{
     display: flex;
@@ -48,6 +51,12 @@
     padding: 10px;
     font-family:proxima_light;
 
+    &-top{
+      background:  linear-gradient( to right, $color-black ,rgba($color-black, .7)), url("../img/back.jpg") 50% 0% no-repeat;
+      background-size: cover, cover;
+
+    }
+
     &__label{
       font-family:proxima_bold;
 
@@ -62,6 +71,11 @@
   &__footer{
     justify-content: flex-start;
     padding: 0 20px;
+
+    &-cancelSave{
+      flex-direction:row-reverse;
+      background: transparent;
+    }
 
     & button:nth-child(3){
       margin-left: auto;
@@ -138,19 +152,52 @@
   &{}
 }
 
-textarea{
+.textarea{
   height: 120px;
   resize: none;
+
+  &-top{
+    height: 64px;
+    line-height: 30px;
+  }
 }
 
 .social_edit{
   border-top: 1px solid $color-grey;
 
+  &-top{
+    border: none;
+  }
+
   &__list{
     list-style: none;
+
+    &-top{
+      display: flex;
+      justify-content: center;
+      margin-bottom:10px;
+    }
   }
 
   &__item{
+
+    &-top{
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      background: #9f9f9f;
+      margin: 5px;
+      color: $color-black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover{
+        background: #fdfdfd;
+      }
+    }
+
     & label{
       font-size: 16px;
     }
@@ -167,6 +214,16 @@ textarea{
   justify-content: flex-start;
   margin-bottom: 15px;
 
+  &-ava{
+    &-top{
+      margin-top: 15px;
+    }
+  }
+
+  &-center{
+    justify-content: center;
+  }
+
   &__action{
     margin-left:20px;
 
@@ -178,6 +235,33 @@ textarea{
   &-cover{
     align-items: center;
   }
+
+  &-bg__edit{
+    cursor: pointer;
+    font-size: 35px;
+    color: #d0d0cf;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom:5px;
+
+    &:hover{
+     color: $color-blue;
+    }
+
+    .bg__edit__icon{
+      display: block;
+      flex: 100%;
+      text-align: center;
+    }
+
+    .bg-edit__label{
+      display: block;
+      font-family:proxima_bold;
+      font-size: 12px;
+      margin-top: -5px;
+    }
+  }
 }
 
 .photo_circle{
@@ -188,7 +272,51 @@ textarea{
   background-color: $color-white;
   text-align: center;
   line-height: 45px;
+
+  &-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    color: $color-white;
+    background: url("../img/ava.jpg") 50% 0% no-repeat;
+    font-size: 20px;
+    position: relative;
+
+    &:hover{
+      border-color: $color-blue;
+
+      &:after{
+        color: $color-blue;
+      }
+    }
+
+    &:after{
+      cursor: pointer;
+      position: absolute;
+      content: '\f030';
+      font-family:FontAwesome;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      font-size: 20px;
+      border-radius: 50%;
+      background: rgba($color-black, .5);
+      color: #d5d5d5;
+      display: flex;
+      justify-content: center;
+      align-items: center;;
+
+
+    }
+  }
 }
+//
+// 
+
+
 
 .photo__add__form {
   background: $color-lightgrey;
