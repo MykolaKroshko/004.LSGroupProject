@@ -1,19 +1,14 @@
-.popUp__content.popUp__content-top
-    .photo_load.photo_load-ava.photo_load-ava-top.photo_load-center
-        .photo_circle.photo_circle-ava.photo_circle-top
-            i.fa.fa-camera
-    .bio
-        .bio__item.desc__item
-            input(class='input', type='text', name='fullName', placeholder='Имя Фамилия')
-        .bio__item.desc__item
-            textarea(class='textarea textarea-top', rows='2', name='message', placeholder='О себе')
-    .social_edit.social_edit-top
-        .social_edit__list.social_edit__list-top
-            +social_edit__item-top('vk.com', 'vk')
-            +social_edit__item-top('Facebook.com', 'facebook')
-            +social_edit__item-top('Twitter.com', 'twitter')
-            +social_edit__item-top('plus.google.com', 'google-plus')
-            +social_edit__item-top('test@test.com', 'envelope')
+.popUp__content.popUp__content-top.popUp__content-top-editAlbum
+    .album_header_main
+        .header_photo.button_shadow.album_photo
+            img.header_image(src="assets/img/default_avatar.jpg")
+        .header_name.album_name
+            h6#userName Крошко Николай Юриевич
+    .bio.bio-top
+        .bio__item.desc__item.desc__item-top
+            input(class='input', type='text', name='albumName', placeholder='Название альбома')
+        .bio__item.desc__item.desc__item-top
+            textarea(class='textarea textarea-editAlbum', rows='7', name='albumDesc', placeholder='Описание альбома')
     .photo_load.photo_load-center.photo_load-bg__edit
         .bg__edit__icon
             i.fa.fa-camera

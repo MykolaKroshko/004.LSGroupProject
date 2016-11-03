@@ -29,6 +29,7 @@
 
   &-top{
     margin: 0;
+    color:$color-white
   }
 
   &__header, &__footer{
@@ -52,8 +53,17 @@
     font-family:proxima_light;
 
     &-top{
-      background:  linear-gradient( to right, $color-black ,rgba($color-black, .7)), url("../img/back.jpg") 50% 0% no-repeat;
-      background-size: cover, cover;
+
+      &-editHeader{
+        background:  linear-gradient( to right, $color-black ,rgba($color-black, .7)), url("../img/back.jpg") 50% 0% no-repeat;
+        background-size: cover, cover;
+      }
+      &-editAlbum{
+        background:  linear-gradient( to right, $color-black ,rgba($color-black, .7)), url("../img/albomBg.jpg") 50% 0% no-repeat;
+        background-size: cover, cover;
+        padding-top:20px;
+
+      }
 
     }
 
@@ -138,7 +148,7 @@
   border-radius: 20px;
   box-sizing: border-box;
   width: 100%;
-  padding: 0 20px;
+  padding: 5px 20px;
   margin: 5px 0;
   color: rgba($color-text, .8);
 
@@ -155,10 +165,13 @@
 .textarea{
   height: 120px;
   resize: none;
+  line-height: 25px;
 
-  &-top{
+  &-editHeader{
     height: 64px;
-    line-height: 30px;
+  }
+  &-editAlbum{
+    height: 188px;
   }
 }
 
@@ -167,6 +180,8 @@
 
   &-top{
     border: none;
+    text-align: center;
+    margin-bottom:10px;
   }
 
   &__list{
@@ -175,7 +190,6 @@
     &-top{
       display: flex;
       justify-content: center;
-      margin-bottom:10px;
     }
   }
 
@@ -205,9 +219,19 @@
   }
 }
 
+.bio-top{
+  margin-top: 5px;
+}
+
 .bio__item, .social_edit__item, [class^='album__add__'], .desc__item{
   margin: 15px 0;
 }
+
+
+.desc__item-top{
+  margin: 0px 0;
+}
+
 
 .photo_load{
   display: flex;
@@ -216,7 +240,7 @@
 
   &-ava{
     &-top{
-      margin-top: 15px;
+      margin-top: 10px;
     }
   }
 
