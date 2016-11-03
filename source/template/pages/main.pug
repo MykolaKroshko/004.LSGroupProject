@@ -9,6 +9,8 @@ block content
     section.section.worldNew
       .section_titleContainer
         h3.section_title Новое в мире
+        include ../main/new_in_world
+        include ../main/new_in_world
         button.showMore.staticButton(type="button") Показать еще
     section.section.alboms
       .section_titleContainer
@@ -17,4 +19,6 @@ block content
           svg
             use.headerButton_svg(xlink:href="assets/img/sprite.svg#add")
           span.headerButton_text Добавить
+        include ../main/my_album
+        include ../main/my_album
   include ../modules/_mainFooter
