@@ -1,0 +1,24 @@
+.headerContainer.headerContainer_album
+  header.header
+    .album_header_main
+      .header_photo.button_shadow.album_photo
+        img.header_image(src="assets/img/default_avatar.jpg")
+      .header_name.album_name
+        h6#userName Крошко Николай Юриевич
+    .header_albumTitle
+      h5#albumTitle.album_title Лесные прогулки
+    .header_about
+      p#albumDescription Фотографии природы леса, енотов и оленей. Как прекрасно сойти на дальней станции и пройтись по полю босиком. И чтобы никто не беспокоил бродить влюбленным в тишину. Запах мёда, лесных оленей и енотов будоражит нутро.
+  .albumCount
+    .albumCount_item
+      svg.albumCount_svg.albumCount_photo
+        use(xlink:href="assets/img/sprite.svg#cam")
+      span.albumCount_text#photosCount 2
+    .albumCount_item
+      svg.albumCount_svg.albumCount_like
+        use(xlink:href="assets/img/sprite.svg#like")
+      span.albumCount_text#likesCount 23
+    .albumCount_item
+      svg.albumCount_svg.albumCount_comment
+        use(xlink:href="assets/img/sprite.svg#comments")
+      span.albumCount_text#commentsCount 332342

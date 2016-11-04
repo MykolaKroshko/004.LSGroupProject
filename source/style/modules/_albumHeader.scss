@@ -1,0 +1,54 @@
+.album{
+  &_header_main{
+    display: flex;
+
+  }
+  &_photo{
+    display: inline-block;
+    margin: 0;
+    margin-right: $indentMultiplier*2;
+  }
+  &_name{
+    display: inline-block;
+    flex: 1;
+    text-align: left;
+    display: flex;
+    align-items: center;
+
+  }
+  &_title{
+    margin: $indentMultiplier 0;
+  }
+  &_content{
+    position: relative;
+  }
+}
+.albumCount{
+  background-color: rgba(#f1f1f1, .9);
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-right: -$indentMultiplier*2;
+  &_svg{
+    height: 18px;
+    width: 20px;
+    margin-right: $indentMultiplier*.5;
+    & use{
+      fill:$darkTextColor;
+    }
+  }
+  &_item{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-right: $indentMultiplier*2;
+  }
+  &_text{
+    min-width: $indentMultiplier*3;
+    font-family: panton;
+  }
+}
+.headerContainer_album{
+  background-image: url(../img/albomBg.jpg);
+}

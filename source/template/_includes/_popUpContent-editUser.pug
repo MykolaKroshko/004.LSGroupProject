@@ -1,0 +1,28 @@
+.popUp__content
+    .bio
+        .bio__item.desc__item
+            label.popUp__content__label Имя
+            input(class='input', type='text', name='firstName', placeholder='Имя')
+            input(class='input', type='text', name='secondName', placeholder='Фамилия')
+        .bio__item.desc__item
+            label.popUp__content__label О себе
+            textarea(class='textarea', rows='5', name='message', placeholder='О себе')
+    .photo_load.photo_load-ava
+        .photo_circle.photo_circle-ava
+            i.fa.fa-camera
+        .photo_load__action
+            button.button.button-border Загрузить фотографию
+            .photo_load__action__desc (файл должен быть размером не более 512 КБ)
+    .photo_load.photo_load-bg
+        .photo_circle.photo_circle-bg
+            i.fa.fa-camera
+        .photo_load__action
+            button.button.button-border Загрузить фон
+            .photo_load__action__desc (файл должен быть размером не более 1024 КБ)
+    .social_edit
+        .social_edit__list
+            +social_edit__item('Вконтакте', 'vkontakte')
+            +social_edit__item('Facebook', 'facebook')
+            +social_edit__item('Email', 'email')
+            +social_edit__item('Twitter', 'twitter')
+            +social_edit__item('Google+', 'google+')
