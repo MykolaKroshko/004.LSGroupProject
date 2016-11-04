@@ -11,7 +11,10 @@ var eventListeners = (function () {
         $('#edit').on('click', _editHeader);
         $('#addAlbum').on('click', _addAlbum);
         $('#addPhoto').on('click', _addPhoto);
-        // $('#close').on('click', console.log('111'));
+
+        $('.popUp__close').on('click', function(){
+            _closePopUp();
+        });
 
     };
 
@@ -34,7 +37,7 @@ var eventListeners = (function () {
     };
 
     var _closePopUp = function (ev) {
-        console.log('ddd');
+        ev.preventDefault();
         $('.popUp__overlay').removeClass("popUp__overlay-show");
     };
 
