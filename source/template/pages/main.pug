@@ -15,10 +15,15 @@ block content
     section.section.alboms
       .section_titleContainer
         h3.section_title Мои альбомы
-        span.headerButton.headerButton_right.button_shadow#quit
+        span.headerButton.headerButton_right.button_shadow#addAlbum
           svg
             use.headerButton_svg(xlink:href="assets/img/sprite.svg#add")
           span.headerButton_text Добавить
         include ../main/my_album
         include ../main/my_album
   include ../modules/_mainFooter
+  //  popUps
+  include ../_mixins/_popUp-mixins
+  include ../_includes/popUp__addAlbum
+  include ../_includes/popUp__editHeader
+  include ../_includes/popUp__editAlbum
