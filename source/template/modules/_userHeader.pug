@@ -1,21 +1,23 @@
 .headerContainer
   header.header
-    .header_buttons
-      .header_photo.button_shadow
-        img.header_image#userPhoto(src="assets/img/default_avatar.jpg")
-      a(href="main.html")
-        span.headerButton.headerButton_right.button_shadow#edit
-          svg
-            use.headerButton_svg(xlink:href="assets/img/sprite.svg#home")
-          span.headerButton_text На главную
-    .header_name
-      h4#userName Александра Соколова
-    .header_about
-      p#userAbout Я веб разработчик. Мне 24 года. Люблю путешествия, кодинг, фриланс и активный отдых.
-    include ../common/_headerSocials
+    .container_adaptive
+      .header_buttons
+        .header_photo.button_shadow
+          img.header_image#userPhoto(src="assets/img/default_avatar.jpg")
+        a(href="main.html")
+          span.headerButton.headerButton_right.button_shadow#edit
+            svg
+              use.headerButton_svg(xlink:href="assets/img/sprite.svg#home")
+            span.headerButton_text На главную
+      .header_name
+        h4#userName Александра Соколова
+      .header_about
+        p#userAbout Я веб разработчик. Мне 24 года. Люблю путешествия, кодинг, фриланс и активный отдых.
+      include ../common/_headerSocials
   .search
-    form.search_form#search(action='#')
-      span.search_icon
-        svg
-          use.search_svg(xlink:href="assets/img/sprite.svg#search")
-      input.search_term(placeholder="Исследовать мир")
+    .container_adaptive
+      form.search_form#search(action='#')
+        span.search_icon
+          svg
+            use.search_svg(xlink:href="assets/img/sprite.svg#search")
+        input.search_term(placeholder="Исследовать мир")

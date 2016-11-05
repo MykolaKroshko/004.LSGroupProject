@@ -10,21 +10,25 @@
   width: 40px;
   white-space: nowrap;
   cursor: pointer;
+  z-index: 30;
+
   & svg{
     width: $indentMultiplier*2;
     height: $indentMultiplier*2;
+    vertical-align: middle;
+    display: inline-block;
   }
   &_text{
-    font-size: 1rem;
+    font-size: 0.75rem;
     font-family: panton;
-    vertical-align: top;
+    vertical-align: middle;
     display: inline-block;
     margin-left: $indentMultiplier;
     color: $lightTextColor;
   }
   &:hover{
     background-color: $hoverColor;
-    width: inherit;
+    width: auto;
   }
   &:hover &_svg{
     fill: #fff;
@@ -34,6 +38,9 @@
   }
   &_right{
     right: 0;
+  }
+  &_top{
+    top:-10px;
   }
   &_svg{
     fill:#a0a09f;
