@@ -12,9 +12,8 @@ var eventListeners = (function () {
         $('#addAlbum').on('click', _addAlbum);
         $('#addPhoto').on('click', _addPhoto);
 
-        $('.popUp__close').on('click', function(){
-            _closePopUp();
-        });
+        $('.popUp__close').on('click', _closePopUp);
+
 
     };
 
