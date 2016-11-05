@@ -1,12 +1,83 @@
-.slides__slide-foto {
-  width: 100vw;
+.slider_container{
+  background: #000000;
+  opacity: 70%;
+  padding: 20px 0;
 }
+
+.slider{
+  width: 70%;
+  margin: 0 auto;
+  }
+
+.slider__slides{
+  position: relative;
+  padding-left: 0;
+
+  margin: 0;
+  white-space: nowrap;
+}
+
+
+.slider__slides {
+  ul{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+
+  }
+  .arrow{
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    opacity: .7;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+
+  }
+}
+
+
+.arrow_left{
+  left:-40px;
+}
+
+.arrow_right{
+  right: -40px;
+}
+
+.slider__li{
+  position: relative;
+  left: 0;
+  display: inline-block;
+
+}
+
+.slider__li_active{
+  //left: 0;
+}
+
+
+
+
+.slides__slide-foto {
+  max-width: 100%;
+  display: block;
+}
+
 .slider__slide-info {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
   align-content: flex-start;
+  background: #ffffff;
+  padding: 0 20px;
   .slide-info__user {
     flex-basis: 45%;
     position: relative;
@@ -67,7 +138,7 @@
 }
 
 .slide__description {
-  padding: 10px;
+
   .description__header {
     line-height: 25px;
     font-family: proxima_bold, sans-serif;
@@ -75,8 +146,8 @@
   }
   .description__main {
     font-family: proxima_light, sans-serif;
-    font-size: 16px;
-    line-height: 25px;
+    font-size: 14px;
+    line-height: 1.5;
     a {
       color: #20b6ed;
     }
@@ -84,7 +155,7 @@
 }
 
 .comments {
-  padding: 10px;
+  padding: 20px;
   background: #f6f6f6;
   position: relative;
   .comments__head {
@@ -144,6 +215,13 @@
   background: #f6f6f6;
   color: #20b6ed;
   margin-top: 10px;
+  cursor: pointer;
+
+  &:hover{
+    background: #20b6ed;
+    color:#fff;
+
+  }
 }
 
 .user-comment:before {
@@ -163,3 +241,21 @@
   font-size: 16px;
   color: #323232;
 }
+
+.slider__close-window{
+  text-align: right;
+  padding-bottom: 10px;
+
+  svg{
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    opacity: .7;
+    cursor: pointer;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
+
