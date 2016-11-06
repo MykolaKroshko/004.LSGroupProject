@@ -57,10 +57,23 @@ body{
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .section{
   flex: 1;
 }
+
+.container_adaptive{
+  width: 98%;
+  margin: 0 auto;
+  position: relative;
+}
+.container_adaptive-flex{
+  display: flex;
+  justify-content: center;
+}
+
+
 @import 'mainPage';
 @import 'albumPage';
 @import 'popUp';

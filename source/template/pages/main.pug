@@ -7,20 +7,22 @@ block content
   .content
     include ../modules/_mainHeader
     section.section.worldNew
-      .section_titleContainer
-        h3.section_title Новое в мире
-        include ../main/new_in_world
-        include ../main/new_in_world
-        button.showMore.staticButton(type="button") Показать еще
+      .container_adaptive
+        .section_titleContainer
+          h3.section_title Новое в мире
+          include ../main/new_in_world
+          include ../main/new_in_world
+          button.showMore.staticButton(type="button") Показать еще
     section.section.alboms
-      .section_titleContainer
-        h3.section_title Мои альбомы
-        span.headerButton.headerButton_right.button_shadow#addAlbum
-          svg
-            use.headerButton_svg(xlink:href="assets/img/sprite.svg#add")
-          span.headerButton_text Добавить
-        include ../main/my_album
-        include ../main/my_album
+      .container_adaptive
+        .section_titleContainer
+          h3.section_title Мои альбомы
+          span.headerButton.headerButton_right.button_shadow#addAlbum
+            svg
+              use.headerButton_svg(xlink:href="assets/img/sprite.svg#add")
+            span.headerButton_text Добавить
+          include ../main/my_album
+          include ../main/my_album
   include ../modules/_mainFooter
   //  popUps
   include ../_mixins/_popUp-mixins
