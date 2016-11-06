@@ -11,9 +11,14 @@
 
 .slider__slides{
   position: relative;
-  padding-left: 0;
+  padding: 0;
   margin: 0;
+
+}
+.slider__inner{
   white-space: nowrap;
+  overflow: hidden;
+  position: relative;
 }
 
 .arrow{
@@ -40,8 +45,8 @@
 }
 
 .slides__slide-foto {
-  max-width: 100%;
-  display: block;
+  width: 100%;
+  display: inline-block;
   position: relative;
   left: 0;
 }
@@ -65,7 +70,7 @@
   align-content: flex-start;
   align-items: center;
   .user__foto {
-
+    margin-right: 10px;
     height: 50px;
     width: 50px;
     overflow: hidden;
@@ -139,26 +144,20 @@
   .comments__head {
     font-family: proxima_bold, sans-serif;
     font-size: 14px;
-    position: relative;
+    display: flex;
+    align-items: center;
+
     .comments-headname {
-      float: left;
+     margin-right: 20px;
+
     }
     .comments-arrow {
-      top: 50%;
-      margin-top: -17px;
-      right: 60%;
-      margin-right: -10px;
-      position: absolute;
-      float: left;
+
       color: #cfcfcf;
       font-size: 30px;
     }
   }
-  .comments__head:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+
 }
 
 .add-comment__container {

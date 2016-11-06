@@ -1,7 +1,9 @@
 $(document).ready(function () {
 //закрытие окна
     (function() {
-        $('.cross').on('click', function () {
+        $('.cross').on('click', function (e) {
+            e.preventDefault();
+
             var
                 $this=$(this),
                 container=$this.closest('.slider_container');
@@ -42,16 +44,17 @@ $(document).ready(function () {
     }());
 
 
+
 //слайдер
     (function(){
 
         var object = {'images':[
             {
                 'name': 'Гена',
-                'title': 'Водичка',
+                'title': 'Путешествие на речном трамвайчике',
                 'url': 'assets/img/slider/slide1.jpg',
                 'likes': '10',
-                'slidedescription': 'Описание 1',
+                'slidedescription': 'Мы отправились в <a href="#">#путешествие</a> два дня назад, но уже сейчас такое ощущение, что мы посмотрели целый новый мир. Далее будет ещё одно описательное предложение. Возможно оно также будет с <a href="#"> #тегами.</a>',
                 'comments': {
                     'name':'Шапокляк',
                     'comment':'Вау как круто'
@@ -83,51 +86,74 @@ $(document).ready(function () {
         ]};
         var i = 0;
 
-        $('.arrow').on('click', function () {
+        var addText=function (i) {
+            //$('.slides__slide-foto').attr('src', object.images[i].url);
+            $('.user__name').text(object.images[i].name);
+            $('.user-comment__name ').text(object.images[i].comments.name);
+            $('.user-comment__text ').text(object.images[i].comments.comment);
+            $('.description__header').text(object.images[i].title);
+            $('.description__main').html(object.images[i].slidedescription);
+            $('.likes__quantity').text(object.images[i].likes);
+
+        };
+
+
+        $('.arrow').on('click', function (e) {
+            e.preventDefault();
+
             var $this=$(this),
                 container=$this.closest('.slider'),
-                slide=container.find('.slides__slide-foto')
+                sliderWindow=container.find('.slider__inner');
+                slide=sliderWindow.find('.slides__slide-foto')
                ;
 
-            if($this.hasClass('arrow_left')){
 
+            if($this.hasClass('arrow_left')){
                 i--;
                 if(i < 0){
-                    i = object.images.length-1;
+                    i = slide.length-1;
                 }
+                pos=-i*100;
+                slide.animate({'left': pos+'%'});
 
 
-                $('.slides__slide-foto').attr('src', object.images[i].url);
-                $('.user__name').text(object.images[i].name);
-                $('.user-comment__name ').text(object.images[i].comments.name);
-                $('.user-comment__text ').text(object.images[i].comments.comment);
-                $('.description__header').text(object.images[i].title);
-                $('.description__main').text(object.images[i].slidedescription);
-                $('.likes__quantity').text(object.images[i].likes);
+;
 
+                addText(i);
             }
 
 
             if($this.hasClass('arrow_right')){
-
-
                 i++;
-                if(i > object.images.length-1){
+                if(i >=slide.length){
                     i = 0;
                 }
 
-                $('.slides__slide-foto').attr('src', object.images[i].url);
-                $('.user__name').text(object.images[i].name);
-                $('.user-comment__name ').text(object.images[i].comments.name);
-                $('.user-comment__text ').text(object.images[i].comments.comment);
-                $('.description__header').text(object.images[i].title);
-                $('.description__main').text(object.images[i].slidedescription);
-                $('.likes__quantity').text(object.images[i].likes);
+                if(i<=0){
+                    pos=0;
+                    slide.animate({'left': pos+'%'});
+                }
+
+                else{
+                    pos=(-i)*100;
+                    slide.animate({'left': pos+'%'});
+                }
+
+                addText(i);
 
             }
 
         });
 
+
+        //загрузка картинок для слайдера
+        $(window).on('load', function() {
+            for (var j = 0; j < object.images.length; j++){
+                stringImg = '<img class="slides__slide-foto" src="'+object.images[j].url+'">';
+                $('.slider__inner').append(stringImg);
+
+            };
+        });
 
 
         $('.slide__likes').on('click', function (e) {

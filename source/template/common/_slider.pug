@@ -5,18 +5,18 @@
                 use(xlink:href='/assets/img/sprite.svg#close')
 
         .slider__slides
-            img.slides__slide-foto(src='assets/img/slider/slide1.jpg')
             svg.arrow.arrow_left
                 use(xlink:href='/assets/img/sprite.svg#arrow_left')
             svg.arrow.arrow_right
                 use(xlink:href='/assets/img/sprite.svg#arrow_right')
+            .slider__inner
 
         .slider__slide-info
             .slider__info_top
                 .slide-info__user
                     .user__foto
                         img(src='assets/img/slider/user-foto.png', alt='')
-                    .user__name Анна Богданова
+                    .user__name Гена
                 a.slide__likes(href='#')
                     svg.heart
                         use(xlink:href='/assets/img/sprite.svg#heart')
@@ -43,8 +43,5 @@
                     .user-comment__name Виталий Виноградов
                     .user-comment__text
                         | Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением. Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца.
-                .user-comment
-                    .user-comment__name Татьяна Литвинова
-                    .user-comment__text
-                        | Эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением.
+
 script(src='https://use.fontawesome.com/5777a8e8fa.js')
