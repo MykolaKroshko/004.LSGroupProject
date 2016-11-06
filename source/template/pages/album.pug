@@ -11,8 +11,20 @@ block content
         svg
           use.headerButton_svg(xlink:href="assets/img/sprite.svg#add")
         span.headerButton_text Добавить
-    include ../main/new_in_world
-    include ../main/new_in_world
+    .photo
+      .photo__img
+          img(src="/assets/img/main_photo1.png", alt="new photo")
+          .photo__like.clearfix
+              .photo__like__amount.clearfix
+                  i.photo__like__amount_item(class='fa fa-commenting' aria-hidden='true')
+                  | 9
+              .photo__like__amount
+                  i.photo__like__amount_item(class='fa fa-heart' aria-hidden='true')
+                  | 15
+      .photo__name.clearfix
+          i.photo__name__img(class='fa fa-pencil' aria-hidden='true')
+          span.photo__name__text Путешествие на лодке по озеру
+
   include ../modules/_mainFooter
 
   include ../_mixins/_popUp-mixins
