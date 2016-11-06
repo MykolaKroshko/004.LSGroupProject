@@ -5,30 +5,22 @@
                 use(xlink:href='/assets/img/sprite.svg#close')
 
         .slider__slides
-            ul
-                li.slider__li.slider__li_active
-                    img.slides__slide-foto(src='assets/img/slider/slide1.jpg')
-                li.slider__li
-                    img.slides__slide-foto(src='assets/img/slider/slide1.jpg')
-                li.slider__li
-                    img.slides__slide-foto(src='assets/img/slider/slide1.jpg')
+            img.slides__slide-foto(src='assets/img/slider/slide1.jpg')
             svg.arrow.arrow_left
                 use(xlink:href='/assets/img/sprite.svg#arrow_left')
             svg.arrow.arrow_right
                 use(xlink:href='/assets/img/sprite.svg#arrow_right')
 
         .slider__slide-info
-            .slide-info__user
-                .user__foto
-                    img(src='assets/img/slider/user-foto.png', alt='')
-                .user__name Анна Богданова
-            .slide__likes
-                a.likes__heart-img(href='#')
-                    svg#Layer_1(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='21px', height='19px', viewbox='53 55.571 22 16.858', enable-background='new 54 55.571 20 16.858', xml:space='preserve')
-                        path(fill='#ee4634',stroke='white', stroke-width="3px" d='M74,60.858c0-2.92-2.367-5.287-5.287-5.287c-2.06,0-3.841,1.181-4.713,2.901\
-                          c-0.873-1.72-2.653-2.901-4.713-2.901c-2.919,0-5.287,2.367-5.287,5.287c0,5.522,8.87,11.571,10,11.571\
-                          C65.131,72.43,74,66.407,74,60.858z')
-                .likes__quantity  0
+            .slider__info_top
+                .slide-info__user
+                    .user__foto
+                        img(src='assets/img/slider/user-foto.png', alt='')
+                    .user__name Анна Богданова
+                a.slide__likes(href='#')
+                    svg.heart
+                        use(xlink:href='/assets/img/sprite.svg#heart')
+                    .likes__quantity  0
             .slide__description
                 h3.description__header Путешествие на речном трамвайчике
                 p.description__main
@@ -39,7 +31,7 @@
         .comments
             .comments__head
                 .comments-headname Комментарии
-                .comments-arrow
+                a.comments-arrow(href="#")
                     i.fa.fa-angle-up(aria-hidden='true')
             .add-comment__container
                 .add-comment__current-commentator  Антон Черепов

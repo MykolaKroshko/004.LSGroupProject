@@ -1,11 +1,11 @@
 .slider_container{
   background: rgba(0,0,0,.8);
   padding: 20px 0;
+  min-height:100vh ;
 }
 
 .slider{
   width: 70%;
-
   margin: 0 auto;
   }
 
@@ -16,31 +16,20 @@
   white-space: nowrap;
 }
 
+.arrow{
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  opacity: .7;
+  cursor: pointer;
 
-.slider__slides {
-  ul{
-    margin: 0;
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-
+  &:hover {
+    opacity: 1;
   }
-  .arrow{
-    position: absolute;
-    top: 50%;
-    width: 20px;
-    height: 20px;
-    fill: #fff;
-    opacity: .7;
-    cursor: pointer;
 
-    &:hover {
-      opacity: 1;
-    }
-
-  }
 }
-
 
 .arrow_left{
   left:-40px;
@@ -50,86 +39,76 @@
   right: -40px;
 }
 
-.slider__li{
-  position: relative;
-  left: 0;
-  display: inline-block;
-
-}
-
-.slider__li_active{
-  //left: 0;
-}
-
-
-
-
 .slides__slide-foto {
   max-width: 100%;
   display: block;
+  position: relative;
+  left: 0;
 }
 
 .slider__slide-info {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-content: flex-start;
+  flex-direction: column;
   background: #ffffff;
-  padding: 0 20px;
-  .slide-info__user {
-    flex-basis: 45%;
-    position: relative;
-    top: 10px;
-    left: 10px;
-    .user__foto {
-      float: left;
-      height: 50px;
-      width: 50px;
-      overflow: hidden;
-      border-radius: 50%;
-    }
-    .user__name {
-      position: absolute;
-      top: 50%;
-      margin-top: -15px;
-      left: 65px;
-      font-family: panton;
-      font-size: 14px;
-    }
+  padding: 20px;
+}
+
+.slider__info_top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.slide-info__user {
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
+  .user__foto {
+
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    border-radius: 50%;
   }
-  .slide-info__user:after{
-    content: "";
-    display: table;
-    clear: both;
+  .user__name {
+    font-family: panton;
+    font-size: 14px;
   }
+
 }
 .slide__likes {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   max-width: 100px;
   flex-basis: 25%;
   background: #ee4634;
   border-radius: 33px;
   height: 40px;
-  top: 10px;
-  right: 10px;
-  position: relative;
+  text-decoration: none;
+
+  svg{
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke-width: 2px;
+    stroke: #fff;
+  }
+
+  &:hover{
+    box-shadow: 0 0 5px #ee4634;
+    svg{
+      fill:#fff;
+    }
+  }
+
   .likes__heart-img {
     height: 50%;
     width: 50%;
-    position: absolute;
-    top: 50%;
-    margin-top: -10px;
-    #Layer_1 {
-      position: absolute;
-      left: 60%;
-      margin-left: -10px;
-    }
+
   }
   .likes__quantity {
-    position: absolute;
-    top: 50%;
-    margin-top: -9px;
-    right: 30%;
     color: white;
     font-family: panton,sans-serif;
     font-size: 16px;
