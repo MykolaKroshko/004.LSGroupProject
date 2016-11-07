@@ -5,4 +5,43 @@ block vars
 
 block content
 	include ../_mixins/_popUp-mixins
-	.block-autorize hello
+	.authorize 
+		.content-conteiner
+			.authorize__title  Добро пожаловать
+			.authorize__text.
+				Перед вами сервис, который поможет вам организовать свои фотографии в альбомы и поделиться ими со всем миром!
+			.flip-container
+				.flipper
+					.authorizhe-form
+						form.authorizhe-form__conteiner(action="" id="form-validation" )
+							p.input-login
+								input.authorizhe-form__style.authorizhe-form__style_login(type="text" name="form_name" placeholder="Электронная почта" )
+								i.fa.fa-envelope.input-login__font-imge(aria-hidden='true')
+							p.input-login
+								input.authorizhe-form__style.authorizhe-form__style_password(type="password" name="form_password" placeholder="Пароль" )
+								i.fa.fa-lock.input-login__font-imge.input-login__font-imge_lock(aria-hidden='true')
+							.password-question 
+								a.password-question__item(href="") Забыли пароль?
+							.authorize-btn
+								input.authorize-btn__item.authorize-btn__item_submit(type="submit" name="submit" value="Войти")
+							.password-question Нет аккаунта? 
+								a.password-question__item.password-question__item_registration(href="#!") Зарегистрироваться
+					.rigestration-form
+						form.authorizhe-form__conteiner(action="" id="form-validation" )
+							p.input-login
+								input.authorizhe-form__style.authorizhe-form__style_login(type="text" name="form_name" placeholder="Имя" )
+								i.fa.fa-user.input-login__font-imge(aria-hidden='true')
+							p.input-login
+								input.authorizhe-form__style.authorizhe-form__style_login(type="text" name="form_name" placeholder="Электронная почта" )
+								i.fa.fa-envelope.input-login__font-imge(aria-hidden='true')
+							p.input-login
+								input.authorizhe-form__style.authorizhe-form__style_password(type="password" name="form_password" placeholder="Пароль" )
+								i.fa.fa-lock.input-login__font-imge.input-login__font-imge_lock(aria-hidden='true')
+							.password-question Ваши данные остаются строго конфедециальны
+							.authorize-btn
+								input.authorize-btn__item.authorize-btn__item_registration(type="submit" name="submit" value="Создать аккаунт")
+							.password-question Уже зарегистрированы?
+								a.password-question__item.password-question__item_entrance(href="#!") Войти
+			.authorize__footer.
+				2016 Создано командой профессионалов
+				на продвинутом курсе по веб-разработке от LoftSchool
