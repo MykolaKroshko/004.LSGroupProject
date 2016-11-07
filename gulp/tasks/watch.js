@@ -10,5 +10,6 @@ module.exports = function() {
       '!./source/images/spriteSourse/**/*.*'
 	], $.gulp.series('copy:image'));
     $.gulp.watch('./source/fonts/**/*.*', $.gulp.series('copy:font'));
+    $.gulp.watch('./source/php/**/*.php', $.gulp.series('copy:php'));
   });
 };
