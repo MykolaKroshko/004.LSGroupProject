@@ -8,7 +8,7 @@ var eventListeners = (function () {
     var _setUpListeners = function () {
 
 
-        $('#edit').on('click', _editHeader);
+git         $('#edit').on('click', _editHeader);
         $('#addAlbum').on('click', _addAlbum);
         $('#addPhoto').on('click', _addPhoto);
 
