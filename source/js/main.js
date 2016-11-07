@@ -47,17 +47,3 @@ var eventListeners = (function () {
 })();
 
 eventListeners.init();
-
-//AJAX
-
-var formData = $("#myform").serializeArray();
-var URL = $("#myform").attr("action");
-$.post(URL,
-    formData,
-    function(data, textStatus, jqXHR)
-    {
-        //data: Data from server.
-    }).fail(function(jqXHR, textStatus, errorThrown)
-{
-
-});
