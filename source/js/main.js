@@ -9,7 +9,7 @@ var eventListeners = (function () {
 
         $('.topArrow').on('click', _smoothScrollUp);
 
-git         $('#edit').on('click', _editHeader);
+        $('#edit').on('click', _editHeader);
         $('#addAlbum').on('click', _addAlbum);
         $('.editAlbum').on('click', _editAlbum);
         $('#addPhoto').on('click', _addPhoto);
