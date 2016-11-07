@@ -11,7 +11,7 @@ module.exports = function() {
 	], $.gulp.series('copy:image')
 
     );
-    $.gulp.watch('./source/php/*.php', $.gulp.series('copy:script'));
     $.gulp.watch('./source/fonts/**/*.*', $.gulp.series('copy:font'));
+    $.gulp.watch('./source/php/**/*.php', $.gulp.series('copy:php'));
   });
 };
