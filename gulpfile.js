@@ -31,8 +31,7 @@ $.gulp.task('default', $.gulp.series(
     'copy:php',
     'css:foundation',
     'sprite:svg',
-    'sprite:png',
-    'copy:script'
+    'sprite:png'
   ),
   $.gulp.parallel(
     'watch',
