@@ -8,7 +8,10 @@ module.exports = function() {
     $.gulp.watch([
       './source/images/**/*.*',
       '!./source/images/spriteSourse/**/*.*'
-	], $.gulp.series('copy:image'));
+	], $.gulp.series('copy:image')
+
+    );
+    $.gulp.watch('./source/php/*.php', $.gulp.series('copy:script'));
     $.gulp.watch('./source/fonts/**/*.*', $.gulp.series('copy:font'));
   });
 };
