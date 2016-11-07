@@ -1,3 +1,4 @@
+-var currentUser='Крокодил Гена'
 .slider_container
     .slider
         .slider__close-window
@@ -34,13 +35,14 @@
                 a.comments-arrow(href="#")
                     i.fa.fa-angle-up(aria-hidden='true')
             .add-comment__container
-                .add-comment__current-commentator  Антон Черепов
-                .add-comment__write-comment
-                    input( class='add-comment' type='text' placeholder='Добавить комментарий' )
-                    button.add-comment__button  Добавить
+                form.add-comment__write-comment(action="/assets/php/comment.php" method="POST")
+                    .add-comment__current-commentator  #{currentUser}
+                    input.hidden(type="text" value=currentUser name='name')
+                    textarea.add-comment(placeholder='Добавить комментарий' name='comment' )
+                    input.add-comment__button(type='submit' value='Добавить')
             .comments-container
                 .user-comment
-                    .user-comment__name Виталий Виноградов
+                    .user-comment__name Шапокляк
                     .user-comment__text
                         | Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением. Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца.
 

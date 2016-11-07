@@ -53,11 +53,11 @@ $(document).ready(function () {
                 'name': 'Гена',
                 'title': 'Путешествие на речном трамвайчике',
                 'url': 'assets/img/slider/slide1.jpg',
-                'likes': '10',
+                'likes': '0',
                 'slidedescription': 'Мы отправились в <a href="#">#путешествие</a> два дня назад, но уже сейчас такое ощущение, что мы посмотрели целый новый мир. Далее будет ещё одно описательное предложение. Возможно оно также будет с <a href="#"> #тегами.</a>',
                 'comments': {
                     'name':'Шапокляк',
-                    'comment':'Вау как круто'
+                    'comment':'Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением. Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца.'
                 }
             },
 
@@ -66,7 +66,7 @@ $(document).ready(function () {
                 'title': 'Новый лежак',
                 'url': 'assets/img/slider/slide2.png',
                 'likes': '12',
-                'slidedescription': 'Описание 2',
+                'slidedescription': 'Я лежу в <a href="#">#гамаке</a>',
                 'comments': {
                     'name': 'Гена',
                     'comment': 'Крутая рогатка'
@@ -77,7 +77,7 @@ $(document).ready(function () {
                 'title': 'Забугорье',
                 'url': 'assets/img/slider/slide3.png',
                 'likes': '15',
-                'slidedescription': 'Описание 3',
+                'slidedescription': 'Поехали!!! До ближайшего населенного пункта 2000км. Не считая этой <a href="#">#деревни</a>, конечно',
                 'comments': {
                     'name': 'Чебурашка',
                     'comment': 'Отличный лесапед'
@@ -86,24 +86,23 @@ $(document).ready(function () {
         ]};
         var i = 0;
 
+        //добавление контента в зависимости от слайда
         var addText=function (i) {
-            //$('.slides__slide-foto').attr('src', object.images[i].url);
             $('.user__name').text(object.images[i].name);
             $('.user-comment__name ').text(object.images[i].comments.name);
             $('.user-comment__text ').text(object.images[i].comments.comment);
             $('.description__header').text(object.images[i].title);
             $('.description__main').html(object.images[i].slidedescription);
             $('.likes__quantity').text(object.images[i].likes);
-
         };
 
-
+        //сам слайдер
         $('.arrow').on('click', function (e) {
             e.preventDefault();
 
             var $this=$(this),
                 container=$this.closest('.slider'),
-                sliderWindow=container.find('.slider__inner');
+                sliderWindow=container.find('.slider__inner'),
                 slide=sliderWindow.find('.slides__slide-foto')
                ;
 
@@ -112,7 +111,8 @@ $(document).ready(function () {
                 i--;
                 if(i < 0){
                     i = slide.length-1;
-                }
+
+                   }
                 pos=-i*100;
                 slide.animate({'left': pos+'%'});
 
@@ -155,7 +155,7 @@ $(document).ready(function () {
             };
         });
 
-
+        //лайки
         $('.slide__likes').on('click', function (e) {
             e.preventDefault();
 
@@ -172,6 +172,48 @@ $(document).ready(function () {
 
 
         });
+
+        //комментарии
+        $('.add-comment__write-comment').on('submit', function(e){
+            e.preventDefault();
+
+            var
+            $this=$(this);
+            textarea=$this.find('.add-comment');
+
+            $(textarea).on('focus', function () {
+                $(this).css({'background': 'transparent'});
+            });
+
+            if(textarea.val().length==0){
+                textarea.css({'background':'rgba(255,0,0,.3)'});
+                return false;
+            }
+            else{
+                var user=$('.add-comment__current-commentator').html();
+                var commentText=textarea.val();
+                var newComment='<div class="user-comment"><div class="user-comment__name">'+user+'</div><div class="user-comment__text">'+commentText+'</div>';
+                $('.comments-container').prepend(newComment);
+
+                var comment = $this.serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: '/assets/php/comment.php',
+                    data: comment,
+                    success: function (data) {
+                        console.log(data);
+                        textarea.val('');
+                    },
+                    error: function(xhr) {
+                        textarea.css({'background':'rgba(255,0,0,.3)'});
+                        console.log(xhr.responseCode);
+
+                    }
+                });
+
+
+            }
+        })
     }());
 
 });
