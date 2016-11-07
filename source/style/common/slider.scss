@@ -1,12 +1,20 @@
 .slider_container{
   background: rgba(0,0,0,.8);
-  padding: 20px 0;
-  min-height:100vh ;
+  padding: 20px 0 40px 0;
+  min-height:200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+
+
 }
 
 .slider{
   width: 70%;
   margin: 0 auto;
+
   }
 
 .slider__slides{
@@ -50,6 +58,7 @@
 .slides__slide-foto {
   width: 100%;
   display: inline-block;
+  vertical-align: bottom;
   position: relative;
   left: 0;
 }
