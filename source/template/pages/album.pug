@@ -1,9 +1,10 @@
 extends ../_template
 
-block vars
-  - var title = 'album'
+block headVars
+  - var title = 'Album'
 
 block content
+  input#pageID(type='hidden' name='pageID' value='album')
   .content
     include ../modules/_albumHeader
     section.album_content.section
@@ -24,10 +25,7 @@ block content
       .photo__name.clearfix
           i.photo__name__img.editPhoto(class='fa fa-pencil' aria-hidden='true')
           span.photo__name__text Путешествие на лодке по озеру
-
   include ../modules/_mainFooter
-
   include ../_mixins/_popUp-mixins
   include ../_includes/popUp__addPhoto
   include ../_includes/popUp__editPhoto
-
