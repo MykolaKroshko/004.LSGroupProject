@@ -3,6 +3,7 @@ $img=$_POST['img'];
 $likes=$_POST['likes'];
 $user=$_POST['user'];
 
-echo($img);
-echo(' '.$likes);
-echo ($user);
+echo('Привет с сервера');
+
+$ajax = array('post' => $_POST, );
+echo json_encode($ajax);
