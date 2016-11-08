@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 07 2016 г., 15:45
+-- Время создания: Ноя 09 2016 г., 01:54
 -- Версия сервера: 5.7.13
 -- Версия PHP: 5.6.23
 
@@ -133,7 +133,7 @@ INSERT INTO `photo` (`id_photo`, `id_album`, `photo`, `description`, `source`) V
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id_user` int(11) NOT NULL,
-  `login` varchar(20) NOT NULL,
+  `name` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `user_description` text NOT NULL,
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id_user`, `login`, `password`, `email`, `user_description`, `avatar`, `background`, `vk`, `facebook`, `google`, `twitter`) VALUES
+INSERT INTO `users` (`id_user`, `name`, `password`, `email`, `user_description`, `avatar`, `background`, `vk`, `facebook`, `google`, `twitter`) VALUES
 (1, 'Иван Иванов', '12345', 'ivanov@this.ru', 'Я веб-разработчик из Урюпинска', '/../database/user1/album1/forest1', '/../database/user1/album1/forest2', 'https://vk.com', 'https://www.facebook.com', 'https://google.com', 'https://twitter.com'),
 (3, 'Петр Петров', '54321', 'petrov@this.ru', 'Я путешественник из Питера. Люблю кататься и саночки возить.', '/../database/album1/trip1.png', '/../database/album1/trip1.png', 'https://vk.com', 'https://www.facebook.com', 'https://google.com', 'https://twitter.com'),
 (4, 'Вася Сидоров', '11111', 'sidoroFF@this.ru', 'Я веб-разработчик из Магадана. У нас холодно, но интересно. Приезжайте!', '/../database/album1/userBG.jpg', '/../database/album1/userBG.jpg', 'https://vk.com', 'https://www.facebook.com', 'https://google.com', 'https://twitter.com/');
