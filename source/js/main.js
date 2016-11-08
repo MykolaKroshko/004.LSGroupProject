@@ -162,6 +162,23 @@ $(document).ready(function () {
         ]};
         var i = 0;
 
+        //загрузка картинок для слайдера
+        $('.new-photo').on('click', function() {
+            for (var j = 0; j < object.images.length; j++){
+                stringImg = '<img class="slides__slide-foto" src="'+object.images[j].url+'">';
+                $('.slider__inner').append(stringImg);
+
+            };
+        });
+
+        //открытие слайдера по клику
+        $('.new-photo').on('click', function (e) {
+            e.preventDefault();
+            $('.slider_container').css({'display':'block'});
+
+        });
+
+
         //добавление контента в зависимости от слайда
         var addText=function (i) {
             $('.user__name').text(object.images[i].name);
@@ -171,6 +188,10 @@ $(document).ready(function () {
             $('.description__main').html(object.images[i].slidedescription);
             $('.likes__quantity').text(object.images[i].likes);
         };
+
+
+
+
 
         //сам слайдер
         $('.arrow').on('click', function (e) {
@@ -221,16 +242,6 @@ $(document).ready(function () {
 
         });
 
-
-        //загрузка картинок для слайдера
-        $(window).on('load', function() {
-            for (var j = 0; j < object.images.length; j++){
-                stringImg = '<img class="slides__slide-foto" src="'+object.images[j].url+'">';
-                $('.slider__inner').append(stringImg);
-
-            };
-        });
-
         //лайки
         $('.slide__likes').on('click', function (e) {
             e.preventDefault();
@@ -239,11 +250,34 @@ $(document).ready(function () {
                 $this=$(this),
                 heart=$this.find('.heart');
                 text=$this.find('.likes__quantity');
+                user=$('.add-comment__current-commentator').html();
 
             counter=parseInt(object.images[i].likes)+1;
 
            text.text(counter);
             object.images[i].likes=counter;
+
+
+            var countLike =({
+                'img': object.images[i].url,
+                'likes': counter,
+                'user': user
+            });
+            $.ajax({
+                type: 'POST',
+                url: '/assets/php/likes.php',
+                data: countLike,
+                success: function (data) {
+                    console.log(data);
+
+                },
+                error: function(xhr) {
+
+                    console.log(xhr.responseCode);
+
+                }
+            });
+
 
 
 
