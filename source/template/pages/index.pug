@@ -1,8 +1,9 @@
 extends ../_template
 
-block vars
-	- var title = 'Autorization'
+block headVars
+  - var title = 'Index'
 
 block content
-	include ../_mixins/_popUp-mixins
-	.block-autorize hello
+  input#pageID(type='hidden' name='pageID' value='auth')
+  include ../_mixins/_popUp-mixins
+  .block-autorize hello

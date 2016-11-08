@@ -1,9 +1,10 @@
 extends ../_template
 
-block vars
+block headVars
   - var title = 'User'
 
 block content
+  input#pageID(type='hidden' name='pageID' value='user')
   .content
     include ../modules/_userHeader
     section.section.alboms

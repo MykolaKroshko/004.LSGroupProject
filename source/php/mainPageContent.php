@@ -13,6 +13,7 @@ $albums_data = $db->prepare("SELECT id_album, album_name, description, cover FRO
 $albums_data->execute();
 $albums = $albums_data->fetchAll(PDO::FETCH_ASSOC);
 
+$images = lastInWorld($db,"''");
 
-$resultUser = array('user'=>$user,'albums'=>$albums);
-echo '<br><br>'.json_encode($resultUser);
+$resultUser = array('user'=>$user,'albums'=>$albums,'images'=>$images);
+echo json_encode($resultUser);
