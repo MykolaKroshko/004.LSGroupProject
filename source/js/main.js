@@ -25,7 +25,7 @@ var eventListeners = (function () {
             scrollTop: 0
         }, 500);
         return false;
-    }
+    };
 
     var _editHeader = function (ev) {
         ev.preventDefault();
@@ -171,7 +171,9 @@ $(document).ready(function () {
 
         //добавление контента в зависимости от слайда
         var addText=function (i){
-            var stringUserFoto='<img src="assets/img/slider/user-foto.png" alt="Фото пользователя">';
+
+            var currentUserSrc="assets/img/slider/user-foto.png";
+            var stringUserFoto='<img src='+currentUserSrc+' alt="Фото пользователя">';
 
             $('.user__foto').append(stringUserFoto);
             $('.imgUrl').val(object.images[i].url);
@@ -227,7 +229,6 @@ $(document).ready(function () {
 
             if(flag) {
                 flag = false;
-                console.log(flag);
 
                 var $this = $(this),
                     container = $this.closest('.slider'),
