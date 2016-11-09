@@ -34,7 +34,8 @@
             .comments__head
                 .comments-headname Комментарии
                 a.comments-arrow(href="#")
-                    i.fa.fa-angle-up(aria-hidden='true')
+                    svg.arrow.arrow_up
+                        use(xlink:href='/assets/img/sprite.svg#arrow_left')
             .add-comment__container
                 form.add-comment__write-comment(action="/assets/php/comment.php" method="POST")
                     .add-comment__current-commentator  #{currentUser}
@@ -44,7 +45,3 @@
                     input.add-comment__button(type='submit' value='Добавить')
             .comments-container
                 //Подгрузка с сервера
-
-
-
-script(src='https://use.fontawesome.com/5777a8e8fa.js')

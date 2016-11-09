@@ -166,6 +166,8 @@ $(document).ready(function () {
 
         //глобальный счетчик
         var i = 0;
+        //запрет частых кликов
+        var flag=true;
 
         //добавление контента в зависимости от слайда
         var addText=function (i){
@@ -185,6 +187,7 @@ $(document).ready(function () {
                 stringComment+='<div class="user-comment__text">'+object.images[i].comments[k].comment+'</div>';
                 $('.comments-container').append(stringComment);
             }
+
         };
 
 
@@ -198,6 +201,15 @@ $(document).ready(function () {
 
                 addText(i);
             }
+
+            var slide=$('.slides__slide-foto');
+            //первая настройка высоты
+            slide.on('load',function () {
+                h=slide[i].height;
+                $('.slider__inner').css({'height': h+'px'});
+
+            })
+
         });
 
         //открытие слайдера по клику
@@ -209,46 +221,74 @@ $(document).ready(function () {
 
 
         //сам слайдер
-        $('.arrow').on('click', function (e) {
-            e.preventDefault();
 
-            var $this=$(this),
-                container=$this.closest('.slider'),
-                sliderWindow=container.find('.slider__inner'),
-                slide=sliderWindow.find('.slides__slide-foto')
-               ;
+            $('.arrow').on('click', function (e) {
+                e.preventDefault();
 
+            if(flag) {
+                flag = false;
+                console.log(flag);
 
-            if($this.hasClass('arrow_left')){
-                i--;
-                if(i < 0){
-                    i = slide.length-1;
-
-                   }
-                pos=-i*100;
-                slide.animate({'left': pos+'%'});
-
-                addText(i);
-            }
+                var $this = $(this),
+                    container = $this.closest('.slider'),
+                    sliderWindow = container.find('.slider__inner'),
+                    slide = sliderWindow.find('.slides__slide-foto')
+                    ;
 
 
-            if($this.hasClass('arrow_right')){
-                i++;
-                if(i >=slide.length){
-                    i = 0;
+                if ($this.hasClass('arrow_left')) {
+
+
+                    if (i <= 0) {
+                        i = slide.length - 1;
+                        $(slide[0]).animate({'left': '-100%'});
+                        $(slide[i]).animate({'left': '0%'});
+                        $(slide).css({'left': '100%'});
+                    }
+                    else {
+
+                        $(slide[i]).animate({'left': '-100%'});
+                        $(slide[i - 1]).animate({'left': '0%'});
+                        $(slide).css({'left': '100%'});
+
+                        i--;
+                    }
+
+                    //добавление текста
+                    addText(i);
+                    //изменение высоты контейнера
+                    var h = slide[i].height;
+                    $('.slider__inner').css({'height': h + 'px'});
+
                 }
 
-                if(i<=0){
-                    pos=0;
-                    slide.animate({'left': pos+'%'});
-                }
 
-                else{
-                    pos=(-i)*100;
-                    slide.animate({'left': pos+'%'});
-                }
+                if ($this.hasClass('arrow_right')) {
 
-                addText(i);
+
+                    if (i >= slide.length - 1) {
+                        i = 0;
+                        $(slide[slide.length - 1]).animate({'left': '100%'});
+                        $(slide[i]).animate({'left': '0%'});
+                        $(slide).css({'left': '-100%'});
+                    }
+
+                    else {
+                        $(slide[i]).animate({'left': '100%'});
+                        $(slide[i + 1]).animate({'left': '0%'});
+                        $(slide).css({'left': '-100%'});
+                        i++;
+                    }
+
+                    //добавление текста
+                    addText(i);
+                    //изменение высоты контейнера
+                    var h = slide[i].height;
+                    $('.slider__inner').css({'height': h + 'px'});
+
+                }
+                setTimeout(function(){
+                    flag=true;}, 500);
 
             }
 
