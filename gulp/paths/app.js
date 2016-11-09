@@ -5,4 +5,5 @@ module.exports = [
   './source/js/renderMain.js',
   './source/js/main.js',
   './source/js/slider2.js'
+  './source/js/flipper.js'
 ];
