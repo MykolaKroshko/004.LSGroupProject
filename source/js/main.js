@@ -19,7 +19,7 @@ var eventListeners = (function () {
 
 
     //    AJAX
-        $('#form_addAlbum').on('submit', _ajaxAddAlbumgit );
+        $('#form_addAlbum').on('submit', _ajaxAddAlbum);
 
 
     };
