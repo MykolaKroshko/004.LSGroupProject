@@ -82,6 +82,21 @@ var eventListeners = (function () {
             url = './assets/php/addAlbum.php';
 
         console.log(ajaxData);
+
+        // ajax запрос
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            data: ajaxData
+        })
+        .done(function (ans) {
+            console.log('success');
+            console.log(ans);
+            }
+
+        )
+
     }
 
 
