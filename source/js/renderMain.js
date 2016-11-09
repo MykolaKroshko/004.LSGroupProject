@@ -25,8 +25,8 @@ function updateUserInfo(){
     $("#userGO").attr("href",dataStoreObject.user.google);
   }
   if (dataStoreObject.user.background){
-    $(".headerContainer").css("background-image","url("+dataStoreObject.user.background+")").css("background-size", "cover");
-    $(".footer").css("background-image","url("+dataStoreObject.user.background+")").css("background-size", "cover");
+    $(".headerContainer").css("background-image","url("+dataStoreObject.user.background+")");
+    $(".footer").css("background-image","url("+dataStoreObject.user.background+")");
   }
 }
 
