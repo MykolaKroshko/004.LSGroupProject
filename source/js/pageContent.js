@@ -33,7 +33,7 @@ $(function(){
 function mainPageContent(userId){
   $.ajax({
     type: "POST",
-    url: "http://004.lsgroupproject/build/assets/php/mainPageContent.php",
+    url: "/assets/php/mainPageContent.php",
     data: "user_id="+userId,
     success: function(msg){
       dataStoreObject = jQuery.parseJSON(msg);
