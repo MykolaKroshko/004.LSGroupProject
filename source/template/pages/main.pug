@@ -1,15 +1,15 @@
 extends ../_template
 
-block vars
+block headVars
   - var title = 'Main'
-
 block content
+  input#pageID(type='hidden' name='pageID' value='main')
   .content
     include ../modules/_mainHeader
     section.section.worldNew
       .container_adaptive
         .section_titleContainer
-          h3.section_title Новое в мире
+          h3.section_title Новое в мире 
           include ../main/new_in_world
           include ../main/new_in_world
           button.showMore.staticButton(type="button") Показать еще
