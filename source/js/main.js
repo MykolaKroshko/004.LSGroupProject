@@ -18,8 +18,13 @@ var eventListeners = (function () {
         $('.popUp__close').on('click', _closePopUp);
 
 
+    //    AJAX
+        $('#form_addAlbum').on('submit', _ajaxAddAlbum);
+
+
     };
 
+    //плавный скролл вверх
     var _smoothScrollUp = function (ev) {
         $('html, body').animate({
             scrollTop: 0
@@ -27,24 +32,28 @@ var eventListeners = (function () {
         return false;
     }
 
+    //вызов поп-апа редактирования хэдера
     var _editHeader = function (ev) {
         ev.preventDefault();
         $('#popUp_editHeader').addClass("popUp__overlay-show");
 
     };
 
+    //вызов поп-апа добавления альбома
     var _addAlbum = function (ev) {
         ev.preventDefault();
         $('#popUp_addAlbum').addClass("popUp__overlay-show");
 
     };
 
+    //вызов поп-апа редактирования альбома
     var _editAlbum = function (ev) {
         ev.preventDefault();
         $('#popUp_editAlbum').addClass("popUp__overlay-show");
 
     };
 
+    //вызов поп-апа добавления фотографии
     var _addPhoto = function (ev) {
         ev.preventDefault();
         $('#popUp_addPhoto').addClass("popUp__overlay-show");
@@ -52,15 +61,28 @@ var eventListeners = (function () {
     };
 
 
+    //вызов поп-апа редактирования фотографии
     var _editPhoto = function (ev) {
         ev.preventDefault();
         $('#popUp_editPhoto').addClass("popUp__overlay-show");
 
     };
 
+    //закрытие поп-апа
     var _closePopUp = function (ev) {
         $('.popUp__overlay').removeClass("popUp__overlay-show");
     };
+
+    //ajax добавление альбома
+    var _ajaxAddAlbum = function (ev) {
+        console.log('addAlbum test')
+        ev.preventDefault();
+
+        var ajaxData = $(this).serialize(),
+            url = './assets/php/addAlbum.php';
+
+        console.log(ajaxData);
+    }
 
 
     return {
