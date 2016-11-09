@@ -120,7 +120,6 @@ $(document).ready(function () {
         };
 
 
-
         //загрузка контента для слайдера
         $('.new-photo').on('click', function() {
             for (var j = 0; j < object.images.length; j++){
@@ -138,7 +137,6 @@ $(document).ready(function () {
                 $('.slider__inner').css({'height': h+'px'});
 
             })
-
         });
 
         //открытие слайдера по клику

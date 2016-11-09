@@ -30,7 +30,7 @@ var eventListeners = (function () {
             scrollTop: 0
         }, 500);
         return false;
-    }
+    };
 
     //вызов поп-апа редактирования хэдера
     var _editHeader = function (ev) {
@@ -97,7 +97,7 @@ var eventListeners = (function () {
 
         )
 
-    }
+    };
 
 
     return {
