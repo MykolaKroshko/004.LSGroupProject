@@ -2,10 +2,11 @@
   header.header
     .container_adaptive
       .header_buttons
-        span.headerButton.headerButton_left.button_shadow#quit
-          svg
-            use.headerButton_svg(xlink:href="assets/img/sprite.svg#off")
-          span.headerButton_text Выйти
+        a(href='index.html')
+          span.headerButton.headerButton_left.button_shadow#quit
+            svg
+              use.headerButton_svg(xlink:href="assets/img/sprite.svg#off")
+            span.headerButton_text Выйти
         .header_photo.button_shadow
           img.header_image#userPhoto(src="assets/img/default_avatar.jpg")
         span.headerButton.headerButton_right.button_shadow#edit
@@ -13,9 +14,9 @@
             use.headerButton_svg(xlink:href="assets/img/sprite.svg#edit")
           span.headerButton_text Редактировать
       .header_name
-        h4#userName Крошко Николай Юриевич
+        h4#userName
       .header_about
-        p#userAbout Я веб разработчик. Мне 24 года. Люблю путешествия, кодинг, фриланс и активный отдых.
+        p#userAbout
       include ../common/_headerSocials
   .search
     .container_adaptive

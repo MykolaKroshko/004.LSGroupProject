@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 09 2016 г., 01:54
+-- Время создания: Ноя 09 2016 г., 17:30
 -- Версия сервера: 5.7.13
 -- Версия PHP: 5.6.23
 
@@ -42,7 +42,7 @@ INSERT INTO `albums` (`id_album`, `id_user`, `album_name`, `description`, `cover
 (1, 1, 'forest', 'Мои прогулки по лесу', '/../database/user1/album1/forest1.png'),
 (2, 1, 'Мои велопрогулки', 'Велопрогулки по окрестностям в мой прошлый отпуск', '/../database/user1/album2/velo1.png'),
 (3, 3, 'Мое путешествие', 'Мое первое путешествие за пределами родины', '/../database/user3/album1/trip1.png'),
-(4, 4, 'Цветочки', 'Букет с дачи', '/../database/user4/album1/userBG.png');
+(4, 4, 'Цветочки', 'Букет с дачи', '/../database/user4/album1/userBG.jpg');
 
 -- --------------------------------------------------------
 
@@ -123,7 +123,7 @@ INSERT INTO `photo` (`id_photo`, `id_album`, `photo`, `description`, `source`) V
 (13, 3, 'Лошадки', 'Или мустанги в прерии?????', '/../database/user3/album1/trip1.png'),
 (14, 3, 'Наступает ночь', 'Только горы, ночь и я....', '/../database/user3/album1/trip2.png'),
 (15, 3, 'Вышел к морю', 'Искупаться не удалось, холодно и камни острые на дне', '/../database/user3/album1/trip3.png'),
-(16, 4, 'Ромашки....', 'Гадать не дам, мне самой мало', '/../database/user3/album1/userBG.jpg');
+(16, 4, 'Ромашки....', 'Гадать не дам, мне самой мало', '/../database/user4/album1/userBG.jpg');
 
 -- --------------------------------------------------------
 
@@ -150,9 +150,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id_user`, `name`, `password`, `email`, `user_description`, `avatar`, `background`, `vk`, `facebook`, `google`, `twitter`) VALUES
-(1, 'Иван Иванов', '12345', 'ivanov@this.ru', 'Я веб-разработчик из Урюпинска', '/../database/user1/album1/forest1', '/../database/user1/album1/forest2', 'https://vk.com', 'https://www.facebook.com', 'https://google.com', 'https://twitter.com'),
-(3, 'Петр Петров', '54321', 'petrov@this.ru', 'Я путешественник из Питера. Люблю кататься и саночки возить.', '/../database/album1/trip1.png', '/../database/album1/trip1.png', 'https://vk.com', 'https://www.facebook.com', 'https://google.com', 'https://twitter.com'),
-(4, 'Вася Сидоров', '11111', 'sidoroFF@this.ru', 'Я веб-разработчик из Магадана. У нас холодно, но интересно. Приезжайте!', '/../database/album1/userBG.jpg', '/../database/album1/userBG.jpg', 'https://vk.com', 'https://www.facebook.com', 'https://google.com', 'https://twitter.com/');
+(1, 'Иван Иванов', '12345', 'ivanov@this.ru', 'Я веб-разработчик из Урюпинска', '/../database/user1/ava.jpg', '/../database/user1/back.jpg', 'https://vk.com', '', 'https://google.com', ''),
+(3, 'Петр Петров', '54321', 'petrov@this.ru', 'Я путешественник из Питера. Люблю кататься и саночки возить.', '/../database/user3/avatar.png', '', '', '', '', ''),
+(4, 'Вася Сидоров', '11111', 'sidoroFF@this.ru', 'Я веб-разработчик из Магадана. У нас холодно, но интересно. Приезжайте!', '', '/../database/user4/userBG.jpg', 'https://vk.com', 'https://www.facebook.com', 'https://google.com', 'https://twitter.com/');
 
 --
 -- Индексы сохранённых таблиц
