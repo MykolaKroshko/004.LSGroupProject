@@ -1,4 +1,5 @@
 -var currentUser='Крокодил Гена'
+-var url='/assets/img/slider/slide1.jpg';
 .slider_container
     .slider
         .slider__close-window
@@ -16,34 +17,31 @@
             .slider__info_top
                 .slide-info__user
                     .user__foto
-                        img(src='assets/img/slider/user-foto.png', alt='')
-                    .user__name Гена
+                    //Подгрузка с сервера
+                    .user__name
+                    //подгрузка с сервера
                 a.slide__likes(href='#')
                     svg.heart
                         use(xlink:href='/assets/img/sprite.svg#heart')
-                    .likes__quantity  0
+                    .likes__quantity
+                     //Подгрузка с сервера
             .slide__description
-                h3.description__header Путешествие на речном трамвайчике
-                p.description__main
-                    | Мы отправились в
-                    a(href='#') #путешествие
-                    | дня назад, но уже сейчас такое ощущение, что мы посмотрели целый новый мир. Далее будет ещё одно описательное предложение. Возможно оно также будет с
-                    a(href='#') #тегами.
+                h3.description__header
+                    //Подгрузка с сервера
+                .description__main
+                    //Подгрузка с сервера
         .comments
             .comments__head
                 .comments-headname Комментарии
                 a.comments-arrow(href="#")
-                    i.fa.fa-angle-up(aria-hidden='true')
+                    svg.arrow.arrow_up
+                        use(xlink:href='/assets/img/sprite.svg#arrow_left')
             .add-comment__container
                 form.add-comment__write-comment(action="/assets/php/comment.php" method="POST")
                     .add-comment__current-commentator  #{currentUser}
-                    input.hidden(type="text" value=currentUser name='name')
+                    input.hidden.imgUrl(type="text" value=url name="url")
+                    input.hidden.userID(type="text" value=currentUser name='name')
                     textarea.add-comment(placeholder='Добавить комментарий' name='comment' )
                     input.add-comment__button(type='submit' value='Добавить')
             .comments-container
-                .user-comment
-                    .user-comment__name Шапокляк
-                    .user-comment__text
-                        | Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением. Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца.
-
-script(src='https://use.fontawesome.com/5777a8e8fa.js')
+                //Подгрузка с сервера

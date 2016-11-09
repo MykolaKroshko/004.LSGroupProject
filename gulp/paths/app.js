@@ -1,7 +1,9 @@
 'use strict';
 
 module.exports = [
-  './source/js/mainPageContent.js',
+  './source/js/pageContent.js',
+  './source/js/renderMain.js',
   './source/js/main.js',
-  './source/js/slider.js'
+  './source/js/slider2.js'
+  './source/js/flipper.js'
 ];

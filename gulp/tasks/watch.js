@@ -13,5 +13,6 @@ module.exports = function() {
     );
     $.gulp.watch('./source/fonts/**/*.*', $.gulp.series('copy:font'));
     $.gulp.watch('./source/php/**/*.php', $.gulp.series('copy:php'));
+    $.gulp.watch('./database/**/*.*', $.gulp.series('copy:db'));
   });
 };
