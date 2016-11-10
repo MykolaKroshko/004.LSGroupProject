@@ -9,7 +9,7 @@ $(function(){
     }else{
       switch (pageId) {
         case 'album':
-          AlbumContent();
+          albumContent();
           break;
         case 'main':
           mainPageContent(userId);
@@ -21,7 +21,7 @@ $(function(){
           console.log('test');
           break;
         case 'user':
-          console.log('user');
+          userContent();
           break;
         default:
           location.href="/index.html";
@@ -59,7 +59,7 @@ $("#showMore").on('click',function(){
   });
 });
 
-function AlbumContent(){
+function albumContent(){
   $.ajax({
     type: "POST",
     url: "/assets/php/albumContent.php",
@@ -67,6 +67,21 @@ function AlbumContent(){
     success: function(msg){
       dataStoreObject = JSON.parse(msg);
       renderAlbum();
+    },
+    error: function (xhr, ajaxOptions, thrownError) {
+      console.log('Ajax request error');
+    }
+  });
+}
+
+function userContent(){
+  $.ajax({
+    type: "POST",
+    url: "/assets/php/userContent.php",
+    data: "user_id="+location.search.replace(/.*?id=(\d*).*/,"$1"),
+    success: function(msg){
+      dataStoreObject = JSON.parse(msg);
+      renderUser();
     },
     error: function (xhr, ajaxOptions, thrownError) {
       console.log('Ajax request error');

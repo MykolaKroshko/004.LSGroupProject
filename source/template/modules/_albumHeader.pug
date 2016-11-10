@@ -2,15 +2,16 @@
   header.header
     .container_adaptive
       .album_header_main
-        .header_photo.button_shadow.album_photo
-          img.header_image#avatar(src="assets/img/default_avatar.jpg")
+        a#userPageLink
+          .header_photo.button_shadow.album_photo
+            img.header_image#avatar(src="assets/img/default_avatar.jpg")
+        .header_name.album_name
+          h6#userName
         a(href="main.html")
           span.headerButton.headerButton_right.button_shadow#backToMain
             svg
               use.headerButton_svg(xlink:href="assets/img/sprite.svg#home")
             span.headerButton_text На главную
-        .header_name.album_name
-          h6#userName
       .header_albumTitle
         h5#albumTitle.album_title
       .header_about

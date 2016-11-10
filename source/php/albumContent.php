@@ -3,7 +3,7 @@ require_once 'connect.php';
 require_once 'selectCommentsAndLikes.php';
 
 $album_id = $_POST['album_id'];
-$album_data = $db->prepare("SELECT u.avatar, u.name, a.cover, a.album_name, a.description FROM users u INNER JOIN albums a ON a.id_user = u.id_user WHERE a.id_album = $album_id");
+$album_data = $db->prepare("SELECT u.avatar, u.name, u.id_user, a.cover, a.album_name, a.description FROM users u INNER JOIN albums a ON a.id_user = u.id_user WHERE a.id_album = $album_id");
 $album_data->execute();
 $album = $album_data->fetch(PDO::FETCH_ASSOC);
 
