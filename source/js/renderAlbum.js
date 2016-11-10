@@ -12,6 +12,7 @@ function renderAlbum(){
   $('#photosCount').text(photos.length);
   $('#commentsCount').text(comments.length);
   $('#likesCount').text(likes.length);
+  $('#userPageLink').attr("href",'/user.html?id='+header.id_user);
   if (header.avatar) {
     $('#avatar').attr('src',header.avatar);
   }
