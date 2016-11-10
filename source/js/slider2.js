@@ -111,6 +111,8 @@ $(document).ready(function () {
 
             }
 
+            addText(i,dataStoreObject);
+
             var slide=$('.slides__slide-foto');
             //первая настройка высоты
             slide.on('load',function () {
