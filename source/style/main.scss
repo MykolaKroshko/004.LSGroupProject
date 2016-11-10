@@ -74,6 +74,9 @@ body{
   justify-content: center;
 }
 
+.has-error{
+  box-shadow: inset 0px 0px 0px 2px $color-red;
+}
 
 @import 'mainPage';
 @import 'albumPage';
