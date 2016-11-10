@@ -95,7 +95,11 @@ function addAlbums(){
   if (albums.length){
     for (var i = 0; i < albums.length; i++) {
       var newAlbum = '<div class="new-album">\
-                        <div class="new-album__img"><img class="new-album__img__item" src="'+albums[i].cover+'" alt="'+albums[i].album_name+'"></div>\
+                        <a href="/album.html?id='+albums[i].id_album+'">\
+                          <div class="new-album__img">\
+                            <img class="new-album__img__item" src="'+albums[i].cover+'" alt="'+albums[i].album_name+'">\
+                          </div>\
+                        </a>\
                         <div class="new-album__detail">\
                           <div class="new-album__name clearfix">\
                             <span class="editButton editAlbum" id="editAlbum">\
