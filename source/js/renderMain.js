@@ -34,9 +34,11 @@ function addLastPhotos(){
   var photosInfo = dataStoreObject.images,
     photos = photosInfo.photos,
     $container = $("#pictupeContainer");
+    dataStoreObject.photoIdList = [];
   $container.html("");
   if (photos.length){     //check if images exist
     for (var i = 0; i < photos.length; i++) {
+      dataStoreObject.photoIdList.push(photos[i].id_photo);
       var avatar = photos[i].avatar ? photos[i].avatar : 'assets/img/default_avatar.jpg',  //check if user have avatar. else default
         likeCount = 0,
         commentCount = 0;
@@ -110,4 +112,23 @@ function addAlbums(){
       $container.append(newAlbum);
     } 
   }
+}
+
+function LITW_addMore(newImages){
+  if(newImages.likes.length){
+    for (var i = 0; i < newImages.likes.length; i++) {
+      dataStoreObject.images.likes.push(newImages.likes[i]);
+    }
+  }
+  if(newImages.comments.length){
+    for (var i = 0; i < newImages.comments.length; i++) {
+      dataStoreObject.images.comments.push(newImages.comments[i]);
+    }
+  }
+  if(newImages.photos.length){
+    for (var i = 0; i < newImages.photos.length; i++) {
+      dataStoreObject.images.photos.push(newImages.photos[i]);
+    }
+  }
+  addLastPhotos();
 }
