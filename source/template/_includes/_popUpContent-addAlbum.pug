@@ -1,4 +1,4 @@
-form.popUp__content(id = 'form_'+`${popUpType}`)
+form.popUp__content(id = 'form_'+`${popUpType}` method="post")
     .album__add
         .album__add__name
             label.popUp__content__label Название
@@ -10,5 +10,7 @@ form.popUp__content(id = 'form_'+`${popUpType}`)
         .photo_circle.photo_circle-cover
             i.fa.fa-camera
         .photo_load__action
-            button.button.button-border Загрузить обложку
+            button.button.button-border
+                span Загрузить обложку
+                input(type="file" class="file-input" id="albumCover" name="albumCover" accept="image/*")
 

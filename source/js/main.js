@@ -35,6 +35,7 @@ var eventListeners = (function () {
     //вызов поп-апа редактирования хэдера
     var _editHeader = function (ev) {
         ev.preventDefault();
+
         $('#popUp_editHeader').addClass("popUp__overlay-show");
 
     };
@@ -76,23 +77,19 @@ var eventListeners = (function () {
     //ajax добавление альбома
     var _ajaxAddAlbum = function (ev) {
         ev.preventDefault();
-        var ajaxData = $(this),
-
+        var ajaxData = $(this);
+        console.log(ajaxData);
         // ajax запрос
-            defObj = commonAjax.ajaxForm(ajaxData, './assets/php/addAlbum.php');
+        var defObj = commonAjax.ajaxForm(ajaxData, './assets/php/addAlbum.php');
         if(defObj){
             console.log('rrrr');
             defObj.done(function (ans) {
                 console.log(ans);
             })
         }
-
-        // defObj.done(function (ans) {
-        //
-        // })
+        return false;
 
     };
-
 
     return {
         init: init
