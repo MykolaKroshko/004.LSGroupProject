@@ -122,7 +122,14 @@ $(document).ready(function () {
 
 
         //загрузка контента для слайдера
-        $('.new-photo').on('click', function() {
+        $('#pictupeContainer').delegate('.new-photo','click', function() {
+
+            //открытие слайдера по клику
+            $('.slider_container').css({'display':'block'});
+
+
+
+            //загрузка картинок
             for (var j = 0; j < object.images.length; j++){
                 //здесь нет путаницы в счетчикаx. i и j на своих местах!!!!!
                 stringImg = '<img class="slides__slide-foto" src="'+object.images[j].url+'">';
@@ -137,15 +144,7 @@ $(document).ready(function () {
                 h=slide[i].height;
                 $('.slider__inner').css({'height': h+'px'});
 
-            })
-
-        });
-
-        //открытие слайдера по клику
-        $('.new-photo').on('click', function (e) {
-            e.preventDefault();
-            $('.slider_container').css({'display':'block'});
-
+            });
         });
 
 
