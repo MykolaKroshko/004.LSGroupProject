@@ -1,5 +1,4 @@
 function renderMainPage(){
-  console.log(dataStoreObject);
   updateUserInfo();
   addLastPhotos();
   addAlbums();
