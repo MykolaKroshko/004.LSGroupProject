@@ -33,10 +33,10 @@ $(function(){
 function mainPageContent(userId){
   $.ajax({
     type: "POST",
-    url: "http://004.lsgroupproject/build/assets/php/mainPageContent.php",
+    url: "http://build:81/assets/php/mainPageContent.php",
     data: "user_id="+userId,
     success: function(msg){
-      dataStoreObject = jQuery.parseJSON(msg);
+      dataStoreObject = JSON.parse(msg);
       renderMainPage();
     },
     error: function (xhr, ajaxOptions, thrownError) {
@@ -44,3 +44,17 @@ function mainPageContent(userId){
     }
   });
 }
+
+$("#showMore").on('click',function(){
+  $.ajax({
+    type: "POST",
+    url: "http://build:81/assets/php/LITW_addMore.php",
+    data: "imageIdList="+dataStoreObject.photoIdList,
+    success: function(msg){
+      LITW_addMore(JSON.parse(msg));
+    },
+    error: function (xhr, ajaxOptions, thrownError) {
+      console.log('Ajax request error');
+    }
+  });
+});
