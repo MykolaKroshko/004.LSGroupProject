@@ -1,0 +1,4 @@
+function renderUser(){
+  updateUserInfo();
+  addAlbums();
+};
