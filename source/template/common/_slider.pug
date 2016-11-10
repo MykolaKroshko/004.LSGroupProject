@@ -1,5 +1,4 @@
--var currentUser='Крокодил Гена'
--var url='/assets/img/slider/slide1.jpg';
+
 .slider_container
     .slider
         .slider__close-window
@@ -17,7 +16,7 @@
             .slider__info_top
                 .slide-info__user
                     .user__foto
-                    //Подгрузка с сервера
+                        img.ava_comment(src='')
                     .user__name
                     //подгрузка с сервера
                 a.slide__likes(href='#')
@@ -38,7 +37,8 @@
                         use(xlink:href='/assets/img/sprite.svg#arrow_left')
             .add-comment__container
                 form.add-comment__write-comment(action="/assets/php/comment.php" method="POST")
-                    .add-comment__current-commentator  #{currentUser}
+                    .add-comment__current-commentator
+                        //c сервера
                     input.hidden.imgUrl(type="text" value=url name="url")
                     input.hidden.userID(type="text" value=currentUser name='name')
                     textarea.add-comment(placeholder='Добавить комментарий' name='comment' )

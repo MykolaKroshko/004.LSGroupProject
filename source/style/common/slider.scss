@@ -104,6 +104,8 @@
     width: 50px;
     overflow: hidden;
     border-radius: 50%;
+    background: url('/assets/img/default_avatar.jpg');
+    background-size: cover;
   }
   .user__name {
     font-family: panton;

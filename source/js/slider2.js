@@ -50,73 +50,49 @@ $(document).ready(function () {
 
 //слайдер
     (function(){
-
-        var object = {'images':[
-            {
-                'name': 'Гена',
-                'title': 'Путешествие на речном трамвайчике',
-                'url': 'assets/img/slider/slide1.jpg',
-                'likes': '0',
-                'slidedescription':'<p>Мы отправились в <a href="#">#путешествие</a> два дня назад, но уже сейчас такое ощущение, что мы посмотрели целый новый мир. Далее будет ещё одно описательное предложение. Возможно оно также будет с <a href="#"> #тегами.</a></p>',
-                'comments': [{
-                    'name':'Шапокляк',
-                    'comment':'Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением. Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца.'
-                },{
-                    'name':'Муму',
-                    'comment':'Доплыла. Где этот Герасим!!!!!!'
-                }
-                ]},
-
-            {
-                'name': 'Чебурашка',
-                'title': 'Новый лежак',
-                'url': 'assets/img/slider/slide2.png',
-                'likes': '12',
-                'slidedescription': '<p>Я лежу в <a href="#">#гамаке</a></p>',
-                'comments': [{
-                    'name': 'Гена',
-                    'comment': 'Крутая рогатка'
-                }
-                ]},
-            {
-                'name': 'Амиго',
-                'title': 'Забугорье',
-                'url': 'assets/img/slider/slide3.png',
-                'likes': '15',
-                'slidedescription': '<p>Поехали!!! До ближайшего населенного пункта 2000км. Не считая этой <a href="#">#деревни</a>, конечно</p>',
-                'comments': [{
-                    'name': 'Чебурашка',
-                    'comment': 'Отличный лесапед'
-                }]
-            }
-        ]};
-
         //глобальный счетчик
         var i = 0;
         //запрет частых кликов
         var flag=true;
+        //счетчик лайков
+        var countLike=0;
+
 
         //добавление контента в зависимости от слайда
-        var addText=function (i){
+        var addText=function (i, object){
 
-            var currentUserSrc="assets/img/slider/user-foto.png";
-            var stringUserFoto='<img src='+currentUserSrc+' alt="Фото пользователя">';
 
-            $('.user__foto').append(stringUserFoto);
-            $('.imgUrl').val(object.images[i].url);
-            $('.user__name').text(object.images[i].name);
-            $('.description__header').text(object.images[i].title);
-            $('.description__main').html(object.images[i].slidedescription);
-            $('.likes__quantity').text(object.images[i].likes);
+            $('.ava_comment').attr('src',object.images.photos[i].avatar);
+            $('.imgUrl').val(object.images.photos[i].source);
+            $('.userID').val(object.user.name);
+            $('.add-comment__current-commentator').text(object.user.name);
+            $('.user__name').text(object.images.photos[i].name);
+            $('.description__header').text(object.images.photos[i].photo);
+            $('.description__main').html(object.images.photos[i].description);
+
             $('.comments-container').empty();
 
-            for(var k=0; k<object.images[i].comments.length; k++){
+            for(var k=0; k<object.images.comments.length; k++){
+                if(object.images.comments[k].id_photo==object.images.photos[i].id_photo){
+
                 stringComment='<div class="user-comment">';
-                stringComment+='<div class="user-comment__name">'+object.images[i].comments[k].name+'</div>';
-                stringComment+='<div class="user-comment__text">'+object.images[i].comments[k].comment+'</div>';
+                stringComment+='<div class="user-comment__name">'+object.images.comments[k].name+'</div>';
+                stringComment+='<div class="user-comment__text">'+object.images.comments[k].text_comment+'</div>';
                 $('.comments-container').append(stringComment);
+
+                }
             }
 
+
+            for(var l=0; l<object.images.likes.length; l++) {
+
+                if(object.images.likes[l].id_photo==object.images.photos[i].id_photo){
+                    ++countLike;
+                }
+            }
+            $('.likes__quantity').text(countLike);
+            countLike=0;
+            photoID='';
         };
 
 
@@ -127,15 +103,13 @@ $(document).ready(function () {
             //открытие слайдера по клику
             $('.slider_container').css({'display':'block'});
 
-
-
-            //загрузка картинок
-            for (var j = 0; j < object.images.length; j++){
+           //загрузка картинок
+            for (var j = 0; j < dataStoreObject.images.photos.length; j++){
                 //здесь нет путаницы в счетчикаx. i и j на своих местах!!!!!
-                stringImg = '<img class="slides__slide-foto" src="'+object.images[j].url+'">';
+                stringImg = '<img class="slides__slide-foto" src="'+dataStoreObject.images.photos[j].source+'">';
                 $('.slider__inner').append(stringImg);
 
-                addText(i);
+
             }
 
             var slide=$('.slides__slide-foto');
@@ -145,6 +119,13 @@ $(document).ready(function () {
                 $('.slider__inner').css({'height': h+'px'});
 
             });
+            addText(i, dataStoreObject);
+
+            //загрузка лайков
+
+
+
+
         });
 
 
@@ -182,7 +163,7 @@ $(document).ready(function () {
                     }
 
                     //добавление текста
-                    addText(i);
+                    addText(i, dataStoreObject);
                     //изменение высоты контейнера
                     var h = slide[i].height;
                     $('.slider__inner').css({'height': h + 'px'});
@@ -208,7 +189,7 @@ $(document).ready(function () {
                     }
 
                     //добавление текста
-                    addText(i);
+                    addText(i, dataStoreObject);
                     //изменение высоты контейнера
                     var h = slide[i].height;
                     $('.slider__inner').css({'height': h + 'px'});
@@ -231,21 +212,21 @@ $(document).ready(function () {
             text=$this.find('.likes__quantity');
             user=$('.add-comment__current-commentator').html();
 
-            counter=parseInt(object.images[i].likes)+1;
+            counter=parseInt(countLike)+1;
 
             text.text(counter);
-            object.images[i].likes=counter;
+                countLike=counter;
 
 
-            var countLike =({
-                'img': object.images[i].url,
+            var countLikeLast =({
+                'img': dataStoreObject.images.photos[i].source,
                 'likes': counter,
                 'user': user
             });
             $.ajax({
                 type: 'POST',
                 url: '/assets/php/likes.php',
-                data: countLike,
+                data: countLikeLast,
                 success: function (data) {
                     console.log(data);
 
