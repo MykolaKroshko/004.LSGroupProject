@@ -30,7 +30,7 @@ var eventListeners = (function () {
             scrollTop: 0
         }, 500);
         return false;
-    }
+    };
 
     //вызов поп-апа редактирования хэдера
     var _editHeader = function (ev) {
@@ -75,29 +75,23 @@ var eventListeners = (function () {
 
     //ajax добавление альбома
     var _ajaxAddAlbum = function (ev) {
-        console.log('addAlbum test')
         ev.preventDefault();
-
-        var ajaxData = $(this).serialize(),
-            url = './assets/php/addAlbum.php';
-
-        console.log(ajaxData);
+        var ajaxData = $(this),
 
         // ajax запрос
-        $.ajax({
-            url: url,
-            type: 'POST',
-            dataType: 'json',
-            data: ajaxData
-        })
-        .done(function (ans) {
-            console.log('success');
-            console.log(ans);
-            }
+            defObj = commonAjax.ajaxForm(ajaxData, './assets/php/addAlbum.php');
+        if(defObj){
+            console.log('rrrr');
+            defObj.done(function (ans) {
+                console.log(ans);
+            })
+        }
 
-        )
+        // defObj.done(function (ans) {
+        //
+        // })
 
-    }
+    };
 
 
     return {

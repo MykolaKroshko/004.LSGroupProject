@@ -120,7 +120,6 @@ $(document).ready(function () {
         };
 
 
-
         //загрузка контента для слайдера
         $('#pictupeContainer').delegate('.new-photo','click', function() {
 
@@ -144,7 +143,18 @@ $(document).ready(function () {
                 h=slide[i].height;
                 $('.slider__inner').css({'height': h+'px'});
 
+<<<<<<< HEAD
             });
+=======
+            })
+        });
+
+        //открытие слайдера по клику
+        $('.new-photo').on('click', function (e) {
+            e.preventDefault();
+            $('.slider_container').css({'display':'block'});
+
+>>>>>>> 4bf9c79edda8cc9bc211949d5ecf30e7c6f63b36
         });
 
 
