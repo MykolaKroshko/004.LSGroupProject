@@ -9,7 +9,7 @@ $(function(){
     }else{
       switch (pageId) {
         case 'album':
-          console.log('album');
+          AlbumContent();
           break;
         case 'main':
           mainPageContent(userId);
@@ -33,7 +33,7 @@ $(function(){
 function mainPageContent(userId){
   $.ajax({
     type: "POST",
-    url: "http://build:81/assets/php/mainPageContent.php",
+    url: "/assets/php/mainPageContent.php",
     data: "user_id="+userId,
     success: function(msg){
       dataStoreObject = JSON.parse(msg);
@@ -48,7 +48,7 @@ function mainPageContent(userId){
 $("#showMore").on('click',function(){
   $.ajax({
     type: "POST",
-    url: "http://build:81/assets/php/LITW_addMore.php",
+    url: "/assets/php/LITW_addMore.php",
     data: "imageIdList="+dataStoreObject.photoIdList,
     success: function(msg){
       LITW_addMore(JSON.parse(msg));
@@ -58,3 +58,18 @@ $("#showMore").on('click',function(){
     }
   });
 });
+
+function AlbumContent(){
+  $.ajax({
+    type: "POST",
+    url: "/assets/php/albumContent.php",
+    data: "album_id="+location.search.replace(/.*?id=(\d*).*/,"$1"),
+    success: function(msg){
+      dataStoreObject = JSON.parse(msg);
+      renderAlbum();
+    },
+    error: function (xhr, ajaxOptions, thrownError) {
+      console.log('Ajax request error');
+    }
+  });
+}

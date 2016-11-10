@@ -3,24 +3,29 @@
     .container_adaptive
       .album_header_main
         .header_photo.button_shadow.album_photo
-          img.header_image(src="assets/img/default_avatar.jpg")
+          img.header_image#avatar(src="assets/img/default_avatar.jpg")
+        a(href="main.html")
+          span.headerButton.headerButton_right.button_shadow#backToMain
+            svg
+              use.headerButton_svg(xlink:href="assets/img/sprite.svg#home")
+            span.headerButton_text На главную
         .header_name.album_name
-          h6#userName Крошко Николай Юриевич
+          h6#userName
       .header_albumTitle
-        h5#albumTitle.album_title Лесные прогулки
+        h5#albumTitle.album_title
       .header_about
-        p#albumDescription Фотографии природы леса, енотов и оленей. Как прекрасно сойти на дальней станции и пройтись по полю босиком. И чтобы никто не беспокоил бродить влюбленным в тишину. Запах мёда, лесных оленей и енотов будоражит нутро.
+        p#albumDescription
   .albumCount
     .container_adaptive.container_adaptive-flex
       .albumCount_item
         svg.albumCount_svg.albumCount_photo
           use(xlink:href="assets/img/sprite.svg#cam")
-        span.albumCount_text#photosCount 2
+        span.albumCount_text#photosCount
       .albumCount_item
         svg.albumCount_svg.albumCount_like
           use(xlink:href="assets/img/sprite.svg#like")
-        span.albumCount_text#likesCount 23
+        span.albumCount_text#likesCount
       .albumCount_item
         svg.albumCount_svg.albumCount_comment
           use(xlink:href="assets/img/sprite.svg#comments")
-        span.albumCount_text#commentsCount 332342
+        span.albumCount_text#commentsCount
