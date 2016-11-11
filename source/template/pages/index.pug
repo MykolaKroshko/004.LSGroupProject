@@ -30,17 +30,17 @@ block content
 					.rigestration-form
 						form.authorizhe-form__conteiner(action="")
 							p.input-login
-								input.authorizhe-form__style.authorizhe-form__style_login(type="text" name="form_name" placeholder="Имя" )
+								input.authorizhe-form__style.authorizhe-form__style_login(type="text" name="name" placeholder="Имя" )
 								i.fa.fa-user.input-login__font-imge(aria-hidden='true')
 							p.input-login
-								input.authorizhe-form__style.authorizhe-form__style_login(type="text" name="form_name" placeholder="Электронная почта" )
+								input.authorizhe-form__style.authorizhe-form__style_login(type="text" name="email" placeholder="Электронная почта" )
 								i.fa.fa-envelope.input-login__font-imge(aria-hidden='true')
 							p.input-login
-								input.authorizhe-form__style.authorizhe-form__style_password(type="password" name="form_password" placeholder="Пароль" )
+								input.authorizhe-form__style.authorizhe-form__style_password(type="password" name="password" placeholder="Пароль" )
 								i.fa.fa-lock.input-login__font-imge.input-login__font-imge_lock(aria-hidden='true')
 							.password-question Ваши данные остаются строго конфедециальны
 							.authorize-btn
-								input.authorize-btn__item.authorize-btn__item_registration(type="submit" name="submit" value="Создать аккаунт")
+								input.authorize-btn__item.authorize-btn__item_registration#register(type="button" name="submit" value="Создать аккаунт")
 							.password-question Уже зарегистрированы?
 								a.password-question__item.password-question__item_entrance(href="#!") Войти
 			.authorize__footer.
