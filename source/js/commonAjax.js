@@ -1,11 +1,11 @@
 var commonAjax = (function () {
 
-    var ajaxForm = function (ajaxData, url) {
+    var ajaxForm = function (ajaxData, url, id) {
         if (!validation.validateForm(ajaxData))
             return false;
-        //преобразование в
+        //преобразование в FormData
         var data = new FormData(ajaxData[0]);
-        data.append('user_id', localStorage.LSGroupProject_userID);
+        data.append('id', id);
         var result = $.ajax({
             url: url,
             type: 'POST',

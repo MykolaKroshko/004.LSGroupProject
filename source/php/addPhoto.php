@@ -18,7 +18,7 @@ require_once 'connect.php';
 //echo json_encode($data);
 //exit;
 
-$user_id = $_POST['id'];
+$user_id = $_POST['user_id'];
 $album_name = $_POST['albumName'];
 $description = $_POST['albumDesc'];
 $album_id_last = $db->prepare("SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES where TABLE_NAME = 'albums' and TABLE_SCHEMA = 'ct61014_photo'");
@@ -50,9 +50,9 @@ if (move_uploaded_file($_FILES['albumCover']['tmp_name'], $uploadfile)) {
 } else {
     echo "Upload failed";
 }
-
-echo "</p>";
-echo '<pre>';
-echo 'Here is some more debugging info:';
-print_r($_FILES);
-print "</pre>";
+//
+//echo "</p>";
+//echo '<pre>';
+//echo 'Here is some more debugging info:';
+//print_r($_FILES);
+//print "</pre>";

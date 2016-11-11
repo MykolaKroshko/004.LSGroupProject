@@ -2,12 +2,14 @@ form.popUp__content(id = 'form_'+`${popUpType}`)
     .photo__add
         .photo__add__name.desc__item
             label.popUp__content__label Название
-                span.popUp__content__label__value Как я провел лето
+                span.popUp__content__label__value
         .photo__add__form.desc__item
             .photo__add__form-empty
                 .photo__add__form-empty__camera
                     i.fa.fa-camera
-                button.button.button-border Выберите файл
+                button.button.button-border
+                    span Выберите файл
+                    input(type="file" class="file-input" name="addPhoto[]" multiple="" accept="image/*")
             .photo__add__form-filled
                 ul.photo__add__form__list
                     li.photo__add__form__item
