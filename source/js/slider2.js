@@ -68,7 +68,7 @@ $(document).ready(function () {
         //добавление контента в зависимости от слайда
         var addText=function (i, object){
             if(!object.images.photos[i].avatar){
-                $('.ava_comment').attr('src','');
+                $('.ava_comment').attr('src','/assets/img/default_avatar.jpg');
             }
             else {
             $('.ava_comment').attr('src',object.images.photos[i].avatar);
@@ -322,7 +322,6 @@ $(document).ready(function () {
 
                     }
                 });
-
 
             }
         })
