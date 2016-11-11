@@ -34,10 +34,13 @@
 }
 .alboms{
   background-color: #f6f6f6;
-  display: flex;
-  flex-wrap: wrap;
   display: -webkit-box;
   display: -ms-flexbox;
+  justify-content: center;
+}
+#albumsContainer{
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 .new-album {
