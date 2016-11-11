@@ -1,4 +1,8 @@
 @import 'modules/_albumHeader';
+.photoContainer{
+	padding-top: 10px;
+}
+
 .album_content{
   position: relative;
   padding: $indentMultiplier 0;
