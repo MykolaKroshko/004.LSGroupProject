@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `albums` (
   PRIMARY KEY (`id_album`),
   KEY `id_user` (`id_user`),
   CONSTRAINT `albums_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ct61014_photo.albums: ~4 rows (approximately)
 /*!40000 ALTER TABLE `albums` DISABLE KEYS */;

@@ -34,7 +34,8 @@ $cover = '/../database/user' . $user_id . '/album' . $album_id . '/' . basename(
 echo $uploaddir . "\n";
 echo $uploadfile . "\n";
 $add_album_data = $db->prepare("
-INSERT INTO albums (id_user, album_name, description, cover) VALUES ('$user_id', '$album_name', '$description', '$cover')
+INSERT INTO albums (id_user, album_name, description, cover) VALUES ('$user_id', '$album_name', '$description', '$cover');
+INSERT INTO photo (id_user, album_name, description, cover) VALUES ('$user_id', '$album_name', '$description', '$cover')
 
 ");
 
