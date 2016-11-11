@@ -38,7 +38,7 @@ function renderAlbum(){
       }
 
       var newPhoto = '<div class="photo">\
-                        <div class="photo__img"><img src="'+photos[i].source+'" alt="new photo">\
+                        <div class="photo__img"><img src="'+photos[i].source+'" alt="image# '+photos[i].id_photo+'" data-imageID="'+photos[i].id_photo+'">\
                           <div class="photo__like clearfix">\
                             <div class="photo__like__amount clearfix"><i class="photo__like__amount_item fa fa-commenting" aria-hidden="true"></i>'+commentCount+'</div>\
                             <div class="photo__like__amount"><i class="photo__like__amount_item fa fa-heart" aria-hidden="true"></i>'+likeCount+'</div>\
