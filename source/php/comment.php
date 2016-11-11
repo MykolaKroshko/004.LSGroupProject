@@ -1,9 +1,17 @@
 <?php
+require 'connect.php';
+
 $commentText=$_POST["comment"];
 $user=$_POST["name"];
-$url=$_POST["url"];
+$photo=$_POST["url"];
 
-echo('Привет с сервера');
+$comment=$db->prepare('INSERT INTO comments(id_user, id_photo, text_comment) VALUES(:id_user, :id_photo, :text)');
+
+$commarray=array('id_user'=>$user, 'id_photo'=>$photo, 'text'=>$commentText);
+
+$comment->execute($commarray);
+
+
 
 $ajax = array('post' => $_POST, );
 echo json_encode($ajax);

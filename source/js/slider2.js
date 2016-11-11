@@ -63,8 +63,8 @@ $(document).ready(function () {
 
 
             $('.ava_comment').attr('src',object.images.photos[i].avatar);
-            $('.imgUrl').val(object.images.photos[i].source);
-            $('.userID').val(object.user.name);
+            $('.imgUrl').val(object.images.photos[i].id_photo);
+            $('.userID').val(localStorage.LSGroupProject_userID);
             $('.add-comment__current-commentator').text(object.user.name);
             $('.user__name').text(object.images.photos[i].name);
             $('.description__header').text(object.images.photos[i].photo);
@@ -72,6 +72,7 @@ $(document).ready(function () {
 
             $('.comments-container').empty();
 
+            //добавление комментов
             for(var k=0; k<object.images.comments.length; k++){
                 if(object.images.comments[k].id_photo==object.images.photos[i].id_photo){
 
@@ -83,7 +84,7 @@ $(document).ready(function () {
                 }
             }
 
-
+            //добавление лайков
             for(var l=0; l<object.images.likes.length; l++) {
 
                 if(object.images.likes[l].id_photo==object.images.photos[i].id_photo){
@@ -93,14 +94,44 @@ $(document).ready(function () {
             $('.likes__quantity').text(countLike);
             countLike=0;
             photoID='';
+
+            //с фикседа на абсолют доделать
+            /*$(window).scroll(function(){
+
+
+
+
+
+
+                if($('.slider').height()>$(window).height()){
+                    $('.slider_container').css({'position':'absolute'},
+                                                {'top': '300px'});
+
+                }
+
+                else {
+
+                    $('.slider_container').css({'position':'fixed'})
+
+
+            });*/
+
+
+
+
+
+
         };
 
 
         //загрузка контента для слайдера
-        $('#pictupeContainer').delegate('.new-photo','click', function() {
+        $('#pictupeContainer').delegate('.new-photo__img','click', function() {
 
             //открытие слайдера по клику
             $('.slider_container').css({'display':'block'});
+
+            window.scrollTo(0,0);
+
 
            //загрузка картинок
             for (var j = 0; j < dataStoreObject.images.photos.length; j++){
@@ -110,7 +141,7 @@ $(document).ready(function () {
 
 
             }
-
+            //добавление текста
             addText(i,dataStoreObject);
 
             var slide=$('.slides__slide-foto');
@@ -118,21 +149,9 @@ $(document).ready(function () {
             slide.on('load',function () {
                 h=slide[i].height;
                 $('.slider__inner').css({'height': h+'px'});
+            });
 
 
-
-            })
-        });
-
-        //открытие слайдера по клику
-        $('.new-photo').on('click', function (e) {
-            e.preventDefault();
-            $('.slider_container').css({'display':'block'});
-
-
-            addText(i, dataStoreObject);
-
-            //загрузка лайков
 
         });
 
@@ -176,6 +195,7 @@ $(document).ready(function () {
                     var h = slide[i].height;
                     $('.slider__inner').css({'height': h + 'px'});
 
+
                 }
 
 
@@ -202,6 +222,8 @@ $(document).ready(function () {
                     var h = slide[i].height;
                     $('.slider__inner').css({'height': h + 'px'});
 
+
+
                 }
                 setTimeout(function(){
                     flag=true;}, 500);
@@ -217,8 +239,8 @@ $(document).ready(function () {
             var
                 $this=$(this),
                 heart=$this.find('.heart');
-            text=$this.find('.likes__quantity');
-            user=$('.add-comment__current-commentator').html();
+                text=$this.find('.likes__quantity');
+                user=$('.add-comment__current-commentator').html();
 
             counter=parseInt(countLike)+1;
 
@@ -227,9 +249,8 @@ $(document).ready(function () {
 
 
             var countLikeLast =({
-                'img': dataStoreObject.images.photos[i].source,
-                'likes': counter,
-                'user': user
+                'img': dataStoreObject.images.photos[i].id_photo,
+                'user': localStorage.LSGroupProject_userID
             });
             $.ajax({
                 type: 'POST',
