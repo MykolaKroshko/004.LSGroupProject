@@ -9,7 +9,7 @@ var eventListeners = (function () {
 
         $('.topArrow').on('click', _smoothScrollUp);
 
-        $('#edit').on('click', _editHeader);
+        $('#edit').on('click', _editUser);
         $('#addAlbum').on('click', _addAlbum);
         $('#albumsContainer').on('click', '.editAlbum', _editAlbum);
         $('#addPhoto').on('click', _addPhoto);
@@ -36,8 +36,13 @@ var eventListeners = (function () {
     //вызов поп-апа редактирования хэдера
     var _editHeader = function (ev) {
         ev.preventDefault();
-
         $('#popUp_editHeader').addClass("popUp__overlay-show");
+
+    };
+    //вызов поп-апа редактирования хэдера 2
+    var _editUser = function (ev) {
+        ev.preventDefault();
+        $('#popUp_editUser').addClass("popUp__overlay-show");
 
     };
 
