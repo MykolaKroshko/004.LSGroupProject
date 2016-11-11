@@ -240,12 +240,14 @@ $(document).ready(function () {
                 $this=$(this),
                 heart=$this.find('.heart');
                 text=$this.find('.likes__quantity');
-                user=$('.add-comment__current-commentator').html();
 
-            counter=parseInt(countLike)+1;
+
+
+            counter=parseInt(text.text())+1;
 
             text.text(counter);
                 countLike=counter;
+
 
 
             var countLikeLast =({
@@ -258,6 +260,7 @@ $(document).ready(function () {
                 data: countLikeLast,
                 success: function (data) {
                     console.log(data);
+                    countLike=0;
 
                 },
                 error: function(xhr) {
