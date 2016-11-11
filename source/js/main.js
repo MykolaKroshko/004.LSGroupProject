@@ -11,15 +11,16 @@ var eventListeners = (function () {
 
         $('#edit').on('click', _editHeader);
         $('#addAlbum').on('click', _addAlbum);
-        $('.editAlbum').on('click', _editAlbum);
+        $('#albumsContainer').on('click', '.editAlbum', _editAlbum);
         $('#addPhoto').on('click', _addPhoto);
-        $('.editPhoto').on('click', _editPhoto);
+        $("#photoContainer").on('click', '.editPhoto', _editPhoto);
 
         $('.popUp__close').on('click', _closePopUp);
 
 
     //    AJAX
         $('#form_addAlbum').on('submit', _ajaxAddAlbum);
+        // $('#form_editAlbum').on('submit', _ajaxEditAlbum);
 
 
     };
@@ -64,7 +65,7 @@ var eventListeners = (function () {
 
     //вызов поп-апа редактирования фотографии
     var _editPhoto = function (ev) {
-        ev.preventDefault();
+        // ev.preventDefault();
         $('#popUp_editPhoto').addClass("popUp__overlay-show");
 
     };
@@ -85,6 +86,7 @@ var eventListeners = (function () {
             console.log('rrrr');
             defObj.done(function (ans) {
                 console.log(ans);
+                window.parent.location.reload();
             })
         }
         return false;

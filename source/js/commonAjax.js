@@ -5,6 +5,7 @@ var commonAjax = (function () {
             return false;
         //преобразование в
         var data = new FormData(ajaxData[0]);
+        data.append('user_id', localStorage.LSGroupProject_userID);
         var result = $.ajax({
             url: url,
             type: 'POST',
