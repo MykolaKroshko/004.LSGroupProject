@@ -113,7 +113,7 @@ var eventListeners = (function () {
             console.log('photo added');
             defObj.done(function (ans) {
                 console.log(ans);
-                // window.parent.location.reload();
+                window.parent.location.reload();
             })
         }
         return false;

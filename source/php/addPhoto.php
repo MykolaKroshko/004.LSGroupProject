@@ -19,32 +19,47 @@ require_once 'connect.php';
 //exit;
 
 $album_id = $_POST['id'];
-$user_id_data = $db->prepare("SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES where TABLE_NAME = 'albums' and TABLE_SCHEMA = 'ct61014_photo'");
+$album_name = $_POST['albumName'];
+$description = $_POST['albumDesc'];
+
+$user_id_data = $db->prepare("
+SELECT id_user FROM albums where id_album = $album_id
+");
+
 $user_id_data->execute();
 $user_id = $user_id_data->fetch(PDO::FETCH_BOTH)[0];
-print_r($user_id);
+
+//print_r($album_id . "\n");
+//print_r($user_id . "\n");
 
 $realPathDB = realpath('../../database/');
 $uploaddir = $realPathDB . '\\user' . $user_id . '\\album' . $album_id;
-$uploadfile = $uploaddir . '\\' . basename($_FILES['addPhoto[]']['name']);
-$cover = '/../database/user' . $user_id . '/album' . $album_id . '/' . basename($_FILES['addPhoto[]']['name']);
-echo $uploaddir . "\n";
-echo $uploadfile . "\n";
-//$add_album_data = $db->prepare("INSERT INTO albums (id_user, album_name, description, cover) VALUES ('$user_id', '$album_name', '$description', '$cover')");
 
-echo "<p>";
+for ($i = 0; $i < count($_FILES['addPhoto']['name']); $i++) {
+    $uploadfile = $uploaddir . '\\' . basename($_FILES['addPhoto']['name'][$i]);
+    $source = '/../database/user' . $user_id . '/album' . $album_id . '/' . basename($_FILES['addPhoto']['name'][$i]);
+//echo $uploaddir . "\n";
+//echo $uploadfile . "\n";
+//echo count($_FILES['addPhoto']['name']) . "\n";
+
+    $add_photo_data = $db->prepare("
+INSERT INTO photo (id_album, photo, description, source) VALUES ('$album_id', '', '', '$source');
+");
+
+    echo "<p>";
 //echo realpath('../../database/') . "\n";
 //echo $uploadfile . "\n";
 //echo getcwd() . "\n";
 //echo ($_POST['albumCover']) . "\n";
-//
-//if (move_uploaded_file($_FILES['albumCover']['tmp_name'], $uploadfile)) {
-//    echo "File is valid, and was successfully uploaded.\n";
-//    $add_album_data->execute();
-//} else {
-//    echo "Upload failed";
-//}
-////
+
+
+    if (move_uploaded_file($_FILES['addPhoto']['tmp_name'][$i], $uploadfile)) {
+        echo "File is valid, and was successfully uploaded.\n";
+        $add_photo_data->execute();
+    } else {
+        echo "Upload failed";
+    }
+}
 //echo "</p>";
 //echo '<pre>';
 //echo 'Here is some more debugging info:';
