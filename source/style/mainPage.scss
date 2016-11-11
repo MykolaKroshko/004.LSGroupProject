@@ -1,6 +1,6 @@
 @media (min-width: 768px) {
   #pictupeContainer {
-    display: flex;
+    display: flex !important;
     flex-wrap: wrap;
     display: -webkit-box;
     display: -ms-flexbox;
