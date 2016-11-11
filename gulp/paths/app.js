@@ -3,6 +3,7 @@
 module.exports = [
   './source/js/formValidation.js',
   './source/js/commonAjax.js',
+  './source/js/auth.js',
   './source/js/pageContent.js',
   './source/js/renderMain.js',
   './source/js/renderAlbum.js',
