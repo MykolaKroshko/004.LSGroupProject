@@ -77,3 +77,51 @@
     fill: $darkTextColor;
   }
 }
+
+
+
+//media queries
+
+@media (min-width: 768px){
+  .headerButton_left {
+    left: auto !important ;
+    right: 0 !important;
+    top: 50px !important;
+  }
+  .header_photo {
+    border: 3px solid #fff;
+    border-radius: 50%;
+    margin: 0;
+    width: 110px;
+    height: 110px;
+    position: relative;
+    overflow: hidden;
+    top: 50px;
+    float: left;
+  }
+  .header_personal-info {
+    float: left;
+    left: 140px;
+    position: relative;
+    top: -58px;
+    max-width: 500px;
+    display: block;
+    text-align: left;
+  }
+  .container_adaptive:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+  .header_buttons:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+  .search_form {
+    float: right;
+    width: 300px;
+  }
+
+
+}

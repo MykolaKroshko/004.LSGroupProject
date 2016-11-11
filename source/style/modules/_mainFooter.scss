@@ -22,3 +22,21 @@
     fill: #fff;
   }
 }
+
+@media (min-width: 768px) {
+  .footerContainer-flex{
+    display: flex;
+    width: 80%;
+  }
+  .footer_button {
+    order: 1;
+  }
+  .footer_description {
+    order: 0;
+    text-align: left;
+  }
+  .footer_copyright {
+    order: 2;
+    text-align: right;
+  }
+}

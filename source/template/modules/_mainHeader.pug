@@ -13,11 +13,12 @@
           svg
             use.headerButton_svg(xlink:href="assets/img/sprite.svg#edit")
           span.headerButton_text Редактировать
-      .header_name
-        h4#userName
-      .header_about
-        p#userAbout
-      include ../common/_headerSocials
+      .header_personal-info
+          .header_name
+            h4#userName
+          .header_about
+            p#userAbout
+          include ../common/_headerSocials
   .search
     .container_adaptive
       form.search_form#search(action='#')

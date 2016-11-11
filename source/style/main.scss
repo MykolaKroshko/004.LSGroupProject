@@ -85,3 +85,10 @@ body{
 @import 'common/slider';
 @import 'main/new_in_world.scss';
 @import 'main/my_album.scss';
+
+//queries
+@media (min-width: 768px) {
+  .section_title {
+    width: 200px;
+  }
+}
