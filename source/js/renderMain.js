@@ -56,7 +56,7 @@ function addLastPhotos(){
 
             //creating image & filling it with data
       var addPhoto = "<div class='new-photo'>\
-                      <div class='new-photo__img'><img src='"+photos[i].source+"' alt='image# "+photos[i].id_photo+"'>\
+                      <div class='new-photo__img'><img src='"+photos[i].source+"' alt='image# "+photos[i].id_photo+"' data-imageID='"+photos[i].id_photo+"'>\
                         <div class='new-photo__img__loupe'><i class='fa fa-search-plus' aria-hidden='true'></i></div>\
                       </div>\
                       <div class='new-photo__about'>\
