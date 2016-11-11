@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               5.7.13-log - MySQL Community Server (GPL)
--- Server OS:                    Win32
--- HeidiSQL Version:             9.3.0.4984
+-- Сервер:                       127.0.0.1
+-- Версія сервера:               5.7.13 - MySQL Community Server (GPL)
+-- ОС сервера:                   Win32
+-- HeidiSQL Версія:              9.3.0.4984
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,7 +16,7 @@ CREATE DATABASE IF NOT EXISTS `ct61014_photo` /*!40100 DEFAULT CHARACTER SET utf
 USE `ct61014_photo`;
 
 
--- Dumping structure for table ct61014_photo.albums
+-- Dumping structure for таблиця ct61014_photo.albums
 DROP TABLE IF EXISTS `albums`;
 CREATE TABLE IF NOT EXISTS `albums` (
   `id_album` int(11) NOT NULL AUTO_INCREMENT,
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `albums` (
   CONSTRAINT `albums_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ct61014_photo.albums: ~4 rows (approximately)
+-- Dumping data for table ct61014_photo.albums: ~4 rows (приблизно)
 /*!40000 ALTER TABLE `albums` DISABLE KEYS */;
 INSERT INTO `albums` (`id_album`, `id_user`, `album_name`, `description`, `cover`) VALUES
 	(1, 1, 'forest', 'Мои прогулки по лесу', '/../database/user1/album1/forest1.png'),
@@ -39,7 +39,7 @@ INSERT INTO `albums` (`id_album`, `id_user`, `album_name`, `description`, `cover
 /*!40000 ALTER TABLE `albums` ENABLE KEYS */;
 
 
--- Dumping structure for table ct61014_photo.comments
+-- Dumping structure for таблиця ct61014_photo.comments
 DROP TABLE IF EXISTS `comments`;
 CREATE TABLE IF NOT EXISTS `comments` (
   `id_comment` int(11) NOT NULL AUTO_INCREMENT,
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`id_photo`) REFERENCES `photo` (`id_photo`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ct61014_photo.comments: ~5 rows (approximately)
+-- Dumping data for table ct61014_photo.comments: ~5 rows (приблизно)
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
 INSERT INTO `comments` (`id_comment`, `id_user`, `id_photo`, `text_comment`) VALUES
 	(1, 1, 13, 'Мне нравится. Очень красиво'),
@@ -64,7 +64,7 @@ INSERT INTO `comments` (`id_comment`, `id_user`, `id_photo`, `text_comment`) VAL
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 
 
--- Dumping structure for table ct61014_photo.likes
+-- Dumping structure for таблиця ct61014_photo.likes
 DROP TABLE IF EXISTS `likes`;
 CREATE TABLE IF NOT EXISTS `likes` (
   `id_like` int(11) NOT NULL AUTO_INCREMENT,
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `likes` (
   CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`id_photo`) REFERENCES `photo` (`id_photo`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ct61014_photo.likes: ~5 rows (approximately)
+-- Dumping data for table ct61014_photo.likes: ~5 rows (приблизно)
 /*!40000 ALTER TABLE `likes` DISABLE KEYS */;
 INSERT INTO `likes` (`id_like`, `id_user`, `id_photo`) VALUES
 	(1, 1, 12),
@@ -88,7 +88,7 @@ INSERT INTO `likes` (`id_like`, `id_user`, `id_photo`) VALUES
 /*!40000 ALTER TABLE `likes` ENABLE KEYS */;
 
 
--- Dumping structure for table ct61014_photo.photo
+-- Dumping structure for таблиця ct61014_photo.photo
 DROP TABLE IF EXISTS `photo`;
 CREATE TABLE IF NOT EXISTS `photo` (
   `id_photo` int(11) NOT NULL AUTO_INCREMENT,
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `photo` (
   CONSTRAINT `photo_ibfk_1` FOREIGN KEY (`id_album`) REFERENCES `albums` (`id_album`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ct61014_photo.photo: ~14 rows (approximately)
+-- Dumping data for table ct61014_photo.photo: ~14 rows (приблизно)
 /*!40000 ALTER TABLE `photo` DISABLE KEYS */;
 INSERT INTO `photo` (`id_photo`, `id_album`, `photo`, `description`, `source`) VALUES
 	(1, 1, 'Осень в лесу', 'Как приятно побродить по осеннему лесу', '/../database/user1/album1/forest1.png'),
@@ -122,24 +122,25 @@ INSERT INTO `photo` (`id_photo`, `id_album`, `photo`, `description`, `source`) V
 /*!40000 ALTER TABLE `photo` ENABLE KEYS */;
 
 
--- Dumping structure for table ct61014_photo.users
+-- Dumping structure for таблиця ct61014_photo.users
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `user_description` text NOT NULL,
-  `avatar` varchar(255) NOT NULL,
-  `background` varchar(255) NOT NULL,
-  `vk` varchar(255) NOT NULL,
-  `facebook` varchar(255) NOT NULL,
-  `google` varchar(255) NOT NULL,
-  `twitter` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `user_description` text,
+  `avatar` varchar(255) DEFAULT NULL,
+  `background` varchar(255) DEFAULT NULL,
+  `vk` varchar(255) DEFAULT NULL,
+  `facebook` varchar(255) DEFAULT NULL,
+  `google` varchar(255) DEFAULT NULL,
+  `twitter` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_user`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ct61014_photo.users: ~3 rows (approximately)
+-- Dumping data for table ct61014_photo.users: ~3 rows (приблизно)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id_user`, `name`, `password`, `email`, `user_description`, `avatar`, `background`, `vk`, `facebook`, `google`, `twitter`) VALUES
 	(1, 'Иван Иванов', '12345', 'ivanov@this.ru', 'Я веб-разработчик из Урюпинска', '/../database/user1/ava.jpg', '/../database/user1/back.jpg', 'https://vk.com', '', 'https://google.com', ''),
