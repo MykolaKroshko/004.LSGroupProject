@@ -1,19 +1,8 @@
-
 //слайдер
+//глобальный счетчик
 
 $(document).ready(function () {
-//закрытие окна
-    (function() {
-        $('.cross').on('click', function (e) {
-            e.preventDefault();
 
-            var
-                $this=$(this),
-                container=$this.closest('.slider_container');
-
-            container.hide();
-        });
-    }());
 
 //комментарии скрытие по нажатию на стрелку
 
@@ -31,7 +20,6 @@ $(document).ready(function () {
                     .addClass('comments__head_hide')
                     .siblings()
                     .hide();
-
             }
 
             else{
@@ -58,11 +46,33 @@ $(document).ready(function () {
         var countLike=0;
 
 
+
+    //закрытие окна
+    (function() {
+        $('.cross').on('click', function (e) {
+            e.preventDefault();
+
+            var
+                $this=$(this),
+                container=$this.closest('.slider_container');
+
+            container.hide();
+            //i=0;
+        });
+    }());
+
+
+
+
+
         //добавление контента в зависимости от слайда
         var addText=function (i, object){
-
-
+            if(!object.images.photos[i].avatar){
+                $('.ava_comment').attr('src','');
+            }
+            else {
             $('.ava_comment').attr('src',object.images.photos[i].avatar);
+            }
             $('.imgUrl').val(object.images.photos[i].id_photo);
             $('.userID').val(localStorage.LSGroupProject_userID);
             $('.add-comment__current-commentator').text(object.user.name);
