@@ -21,7 +21,7 @@ var eventListeners = (function () {
     //    AJAX
         $('#form_addAlbum').on('submit', _ajaxAddAlbum);
         $('#form_addPhoto').on('submit', _ajaxAddPhoto);
-        $('#form_editPhoto').on('submit', _ajaxEditPhoto);
+        // $('#form_editPhoto').on('submit', _ajaxEditPhoto);
         // $('#form_editAlbum').on('submit', _ajaxEditAlbum);
 
 
