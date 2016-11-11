@@ -249,6 +249,20 @@
   margin: 15px 0;
 }
 
+.popUp__content__label {
+  display: block;
+}
+input[name = 'socialNameInput']{
+  display: block;
+  width: 95%;
+  border-radius: 25px;
+  height: 40px;
+  border: 1px solid rgb(216, 214, 214);
+  padding-left: 16px;
+  max-width: 300px;
+}
+
+
 
 .desc__item-top{
   margin: 0px 0;
@@ -430,4 +444,81 @@
 //for main content
 .lock{
   overflow: hidden;
+}
+
+
+//mediaqueries for popUP edit user profile
+
+@media (min-width: 768px) {
+  //mediaqueries for popUP edit user profile
+  .popUp {
+    width: 80%;
+  }
+  input[name='firstName'] {
+    width: 270px;
+  }
+  .secondName {
+    width: 270px !important;
+  }
+  textarea[name='message']{
+    width: 545px;
+  }
+  .popUp__content__label-descr{
+    width: 46px !important;
+    display: inline-block;
+  }
+  .descr-aboutme{
+    vertical-align: top;
+  }
+  .photo_load__action {
+    display: inline-block;
+  }
+  .photo_load__action__desc {
+    display: inline-block;
+  }
+  .photo_circle-bg {
+    display: inline-block;
+  }
+  input[name="socialNameInput"] {
+    display: inline-block;
+  }
+  #form_editUser {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 740px;
+  }
+  .popUp__content__label-editUser {
+    display: inline-block;
+    text-align: right;
+    width: 100px;
+    margin-right: 20px;
+  }
+  // media for add album pop-up
+  .popUp__content__label-addAlbum {
+    display: inline-block;
+  }
+  input[name='albumName']{
+    display: inline-block;
+    width: 80% !important;
+  }
+  .albumDescription-label {
+    vertical-align: top;
+  }
+  .albumDesc {
+    display: inline-block;
+    width: 80% !important;
+  }
+
+
+}
+.header_photo-editAlbum {
+  border: 3px solid #fff;
+  border-radius: 50%;
+  margin: 0;
+  width: 67px;
+  height: 67px;
+  position: relative;
+  overflow: hidden;
+  top: 0px;
+  float: left;
 }

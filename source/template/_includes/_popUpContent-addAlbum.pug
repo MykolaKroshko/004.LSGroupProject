@@ -1,11 +1,11 @@
 form.popUp__content(id = 'form_'+`${popUpType}` method="post")
     .album__add
         .album__add__name
-            label.popUp__content__label Название
+            label.popUp__content__label.popUp__content__label-addAlbum Название
             input(class='input', type='text', name='albumName', placeholder='Название альбома')
         .album__add__desc
-            label.popUp__content__label Описание
-            textarea(class='textarea', rows='5', name='albumDesc', placeholder='Добавьте несколько слов о Вашем альбоме')
+            label.popUp__content__label.popUp__content__label-addAlbum.albumDescription-label Описание
+            textarea(class='textarea albumDesc ', rows='5', name='albumDesc', placeholder='Добавьте несколько слов о Вашем альбоме')
     .photo_load.photo_load-cover
         .photo_circle.photo_circle-cover
             i.fa.fa-camera
