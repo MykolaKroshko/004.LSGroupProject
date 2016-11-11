@@ -1,19 +1,8 @@
-
 //слайдер
+//глобальный счетчик
 
 $(document).ready(function () {
-//закрытие окна
-    (function() {
-        $('.cross').on('click', function (e) {
-            e.preventDefault();
 
-            var
-                $this=$(this),
-                container=$this.closest('.slider_container');
-
-            container.hide();
-        });
-    }());
 
 //комментарии скрытие по нажатию на стрелку
 
@@ -31,7 +20,6 @@ $(document).ready(function () {
                     .addClass('comments__head_hide')
                     .siblings()
                     .hide();
-
             }
 
             else{
@@ -58,13 +46,35 @@ $(document).ready(function () {
         var countLike=0;
 
 
+
+    //закрытие окна
+    (function() {
+        $('.cross').on('click', function (e) {
+            e.preventDefault();
+
+            var
+                $this=$(this),
+                container=$this.closest('.slider_container');
+
+            container.hide();
+            //i=0;
+        });
+    }());
+
+
+
+
+
         //добавление контента в зависимости от слайда
         var addText=function (i, object){
-
-
+            if(!object.images.photos[i].avatar){
+                $('.ava_comment').attr('src','/assets/img/default_avatar.jpg');
+            }
+            else {
             $('.ava_comment').attr('src',object.images.photos[i].avatar);
-            $('.imgUrl').val(object.images.photos[i].source);
-            $('.userID').val(object.user.name);
+            }
+            $('.imgUrl').val(object.images.photos[i].id_photo);
+            $('.userID').val(localStorage.LSGroupProject_userID);
             $('.add-comment__current-commentator').text(object.user.name);
             $('.user__name').text(object.images.photos[i].name);
             $('.description__header').text(object.images.photos[i].photo);
@@ -72,6 +82,7 @@ $(document).ready(function () {
 
             $('.comments-container').empty();
 
+            //добавление комментов
             for(var k=0; k<object.images.comments.length; k++){
                 if(object.images.comments[k].id_photo==object.images.photos[i].id_photo){
 
@@ -83,8 +94,7 @@ $(document).ready(function () {
                 }
             }
 
-
-
+            //добавление лайков
             for(var l=0; l<object.images.likes.length; l++) {
 
                 if(object.images.likes[l].id_photo==object.images.photos[i].id_photo){
@@ -94,26 +104,44 @@ $(document).ready(function () {
             $('.likes__quantity').text(countLike);
             countLike=0;
             photoID='';
-        };
+
+            //с фикседа на абсолют доделать
+            /*$(window).scroll(function(){
 
 
-            for(var l=0; l<object.images.likes.length; l++) {
 
-                if(object.images.likes[l].id_photo==object.images.photos[i].id_photo){
-                    ++countLike;
+
+
+
+                if($('.slider').height()>$(window).height()){
+                    $('.slider_container').css({'position':'absolute'},
+                                                {'top': '300px'});
+
                 }
-            }
-            $('.likes__quantity').text(countLike);
-            countLike=0;
-            photoID='';
+
+                else {
+
+                    $('.slider_container').css({'position':'fixed'})
+
+
+            });*/
+
+
+
+
+
+
         };
 
 
         //загрузка контента для слайдера
-        $('#pictupeContainer').delegate('.new-photo','click', function() {
+        $('#pictupeContainer').delegate('.new-photo__img','click', function() {
 
             //открытие слайдера по клику
             $('.slider_container').css({'display':'block'});
+
+            window.scrollTo(0,0);
+
 
            //загрузка картинок
             for (var j = 0; j < dataStoreObject.images.photos.length; j++){
@@ -123,7 +151,7 @@ $(document).ready(function () {
 
 
             }
-
+            //добавление текста
             addText(i,dataStoreObject);
 
             var slide=$('.slides__slide-foto');
@@ -131,12 +159,7 @@ $(document).ready(function () {
             slide.on('load',function () {
                 h=slide[i].height;
                 $('.slider__inner').css({'height': h+'px'});
-
             });
-            addText(i, dataStoreObject);
-
-            //загрузка лайков
-
 
 
 
@@ -182,6 +205,7 @@ $(document).ready(function () {
                     var h = slide[i].height;
                     $('.slider__inner').css({'height': h + 'px'});
 
+
                 }
 
 
@@ -208,6 +232,8 @@ $(document).ready(function () {
                     var h = slide[i].height;
                     $('.slider__inner').css({'height': h + 'px'});
 
+
+
                 }
                 setTimeout(function(){
                     flag=true;}, 500);
@@ -223,19 +249,20 @@ $(document).ready(function () {
             var
                 $this=$(this),
                 heart=$this.find('.heart');
-            text=$this.find('.likes__quantity');
-            user=$('.add-comment__current-commentator').html();
+                text=$this.find('.likes__quantity');
 
-            counter=parseInt(countLike)+1;
+
+
+            counter=parseInt(text.text())+1;
 
             text.text(counter);
                 countLike=counter;
 
 
+
             var countLikeLast =({
-                'img': dataStoreObject.images.photos[i].source,
-                'likes': counter,
-                'user': user
+                'img': dataStoreObject.images.photos[i].id_photo,
+                'user': localStorage.LSGroupProject_userID
             });
             $.ajax({
                 type: 'POST',
@@ -243,6 +270,7 @@ $(document).ready(function () {
                 data: countLikeLast,
                 success: function (data) {
                     console.log(data);
+                    countLike=0;
 
                 },
                 error: function(xhr) {
@@ -294,7 +322,6 @@ $(document).ready(function () {
 
                     }
                 });
-
 
             }
         })
