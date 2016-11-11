@@ -1,25 +1,24 @@
 .headerContainer
-    header.header
-        .container_adaptive
-            .header_buttons
-                .header_photo.button_shadow
-                    img.header_image#userPhoto(src="assets/img/default_avatar.jpg")
-                a(href="main.html")
-                span.headerButton.headerButton_right.button_shadow#backToMain
-                    svg
-                        use.headerButton_svg(xlink:href="assets/img/sprite.svg#home")
-                    span.headerButton_text На главную
-
-            .header_personal-info
-                .header_name
-                    h4#userName
-                .header_about
-                    p#userAbout
-                include ../common/_headerSocials
-    .search
-        .container_adaptive
-            form.search_form#search(action='#')
-                span.search_icon
-                  svg
-                    use.search_svg(xlink:href="assets/img/sprite.svg#search")
-                input.search_term(placeholder="Исследовать мир")
+  header.header
+    .container_adaptive
+      .header_buttons
+        .header_photo.button_shadow
+          img.header_image#userPhoto(src="assets/img/default_avatar.jpg")
+        a(href="main.html")
+          span.headerButton.headerButton_right.button_shadow#backToMain
+            svg
+              use.headerButton_svg(xlink:href="assets/img/sprite.svg#home")
+            span.headerButton_text На главную
+      .header_personal-info
+        .header_name
+          h4#userName
+        .header_about
+          p#userAbout
+        include ../common/_headerSocials
+  .search
+    .container_adaptive
+      form.search_form#search(action='#')
+        span.search_icon
+          svg
+          use.search_svg(xlink:href="assets/img/sprite.svg#search")
+        input.search_term(placeholder="Исследовать мир")

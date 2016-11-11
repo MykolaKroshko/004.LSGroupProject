@@ -20,6 +20,7 @@ var eventListeners = (function () {
 
     //    AJAX
         $('#form_addAlbum').on('submit', _ajaxAddAlbum);
+        $('#form_addPhoto').on('submit', _ajaxAddPhoto);
         // $('#form_editAlbum').on('submit', _ajaxEditAlbum);
 
 
@@ -64,7 +65,8 @@ var eventListeners = (function () {
     var _addPhoto = function (ev) {
         ev.preventDefault();
         $('#popUp_addPhoto').addClass("popUp__overlay-show");
-
+        //динамическое название альбома
+        $('#form_addPhoto').find('.popUp__content__label__value').text($('#albumDescription').text());
     };
 
 
@@ -85,13 +87,33 @@ var eventListeners = (function () {
         ev.preventDefault();
         var ajaxData = $(this);
         console.log(ajaxData);
+        var id = localStorage.LSGroupProject_userID;
         // ajax запрос
-        var defObj = commonAjax.ajaxForm(ajaxData, './assets/php/addAlbum.php');
+        var defObj = commonAjax.ajaxForm(ajaxData, './assets/php/addAlbum.php', id);
         if(defObj){
             console.log('rrrr');
             defObj.done(function (ans) {
                 console.log(ans);
                 window.parent.location.reload();
+            })
+        }
+        return false;
+
+    };
+    //ajax добавление фото
+    var _ajaxAddPhoto = function (ev) {
+        ev.preventDefault();
+        var ajaxData = $(this);
+        console.log(ajaxData);
+        var id = location.search.replace(/.*?id=(\d*).*/,"$1");
+        console.log(id);
+        // ajax запрос
+        var defObj = commonAjax.ajaxForm(ajaxData, './assets/php/addPhoto.php', id);
+        if(defObj){
+            console.log('photo added');
+            defObj.done(function (ans) {
+                console.log(ans);
+                // window.parent.location.reload();
             })
         }
         return false;
