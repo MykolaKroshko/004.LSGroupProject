@@ -84,6 +84,19 @@ $(document).ready(function () {
             }
 
 
+
+            for(var l=0; l<object.images.likes.length; l++) {
+
+                if(object.images.likes[l].id_photo==object.images.photos[i].id_photo){
+                    ++countLike;
+                }
+            }
+            $('.likes__quantity').text(countLike);
+            countLike=0;
+            photoID='';
+        };
+
+
             for(var l=0; l<object.images.likes.length; l++) {
 
                 if(object.images.likes[l].id_photo==object.images.photos[i].id_photo){
@@ -119,20 +132,13 @@ $(document).ready(function () {
                 h=slide[i].height;
                 $('.slider__inner').css({'height': h+'px'});
 
-
-
-            })
-        });
-
-        //открытие слайдера по клику
-        $('.new-photo').on('click', function (e) {
-            e.preventDefault();
-            $('.slider_container').css({'display':'block'});
-
-
+            });
             addText(i, dataStoreObject);
 
             //загрузка лайков
+
+
+
 
         });
 
