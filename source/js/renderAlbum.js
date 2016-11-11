@@ -1,5 +1,4 @@
 function renderAlbum(){
-  console.log(dataStoreObject);
   var header = dataStoreObject.album,
     photos = dataStoreObject.photos,
     comments = dataStoreObject.comments,
