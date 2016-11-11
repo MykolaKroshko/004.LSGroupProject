@@ -21,7 +21,7 @@ require_once 'connect.php';
 $user_id = $_POST['id'];
 $album_name = $_POST['albumName'];
 $description = $_POST['albumDesc'];
-$album_id_last = $db->prepare("SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES where TABLE_NAME = 'albums' and TABLE_SCHEMA = 'ct61014_photo'");
+$album_id_last = $db->prepare("SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES where TABLE_NAME = 'albums' and TABLE_SCHEMA = 'ct61014_photo';");
 $album_id_last->execute();
 $album_id = $album_id_last->fetch(PDO::FETCH_BOTH)[0];
 //$album_id++;
@@ -33,7 +33,10 @@ $uploadfile = $uploaddir . '\\' . basename($_FILES['albumCover']['name']);
 $cover = '/../database/user' . $user_id . '/album' . $album_id . '/' . basename($_FILES['albumCover']['name']);
 echo $uploaddir . "\n";
 echo $uploadfile . "\n";
-$add_album_data = $db->prepare("INSERT INTO albums (id_user, album_name, description, cover) VALUES ('$user_id', '$album_name', '$description', '$cover')");
+$add_album_data = $db->prepare("
+INSERT INTO albums (id_user, album_name, description, cover) VALUES ('$user_id', '$album_name', '$description', '$cover')
+
+");
 
 echo "<p>";
 //echo realpath('../../database/') . "\n";

@@ -105,7 +105,7 @@ var eventListeners = (function () {
         ev.preventDefault();
         var ajaxData = $(this);
         console.log(ajaxData);
-        var id = localStorage.LSGroupProject_userID;
+        var id = location.search.replace(/.*?id=(\d*).*/,"$1");
         console.log(id);
         // ajax запрос
         var defObj = commonAjax.ajaxForm(ajaxData, './assets/php/addPhoto.php', id);
