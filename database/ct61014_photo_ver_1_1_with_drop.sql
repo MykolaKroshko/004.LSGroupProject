@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `twitter` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ct61014_photo.users: ~3 rows (приблизно)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
