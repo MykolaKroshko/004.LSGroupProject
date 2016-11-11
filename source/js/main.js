@@ -21,6 +21,7 @@ var eventListeners = (function () {
     //    AJAX
         $('#form_addAlbum').on('submit', _ajaxAddAlbum);
         $('#form_addPhoto').on('submit', _ajaxAddPhoto);
+        $('#form_editPhoto').on('submit', _ajaxEditPhoto);
         // $('#form_editAlbum').on('submit', _ajaxEditAlbum);
 
 
@@ -74,6 +75,7 @@ var eventListeners = (function () {
     var _editPhoto = function (ev) {
         // ev.preventDefault();
         $('#popUp_editPhoto').addClass("popUp__overlay-show");
+        $('#form_addPhoto').find('.popUp__content__label__value').text($('#albumDescription').text());
 
     };
 
@@ -100,6 +102,7 @@ var eventListeners = (function () {
         return false;
 
     };
+
     //ajax добавление фото
     var _ajaxAddPhoto = function (ev) {
         ev.preventDefault();
@@ -111,6 +114,26 @@ var eventListeners = (function () {
         var defObj = commonAjax.ajaxForm(ajaxData, './assets/php/addPhoto.php', id);
         if(defObj){
             console.log('photo added');
+            defObj.done(function (ans) {
+                console.log(ans);
+                window.parent.location.reload();
+            })
+        }
+        return false;
+
+    };
+
+    //ajax редактирование фото
+    var _ajaxAddPhoto = function (ev) {
+        ev.preventDefault();
+        var ajaxData = $(this);
+        console.log(ajaxData);
+        var id = location.search.replace(/.*?id=(\d*).*/,"$1");
+        console.log(id);
+        // ajax запрос
+        var defObj = commonAjax.ajaxForm(ajaxData, './assets/php/editPhoto.php', id);
+        if(defObj){
+            console.log('photo edited');
             defObj.done(function (ans) {
                 console.log(ans);
                 window.parent.location.reload();

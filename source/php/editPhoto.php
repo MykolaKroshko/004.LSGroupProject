@@ -1,31 +1,10 @@
 <?php
 
 require_once 'connect.php';
-//$ajax = array('get' => $_GET,'post' => $_POST, );
-//header('Content-Type: application/json');
-//echo json_encode("it works");
-//echo json_encode($ajax);
-//phpinfo();
-//echo json_encode($_POST);
-//echo $_FILES["albumCover"][name];
-//header('Access-Control-Allow-Origin: *');
-//exit;
-
-
-//$data = array();
-//$data[mes] = 'OK';
-//header("Content-Type: application/json");
-//echo json_encode($data);
-//exit;
 
 $album_id = $_POST['id'];
-
-$user_id_data = $db->prepare("
-SELECT id_user FROM albums where id_album = $album_id
-");
-
-$user_id_data->execute();
-$user_id = $user_id_data->fetch(PDO::FETCH_BOTH)[0];
+$photo_name = $_POST['photoName'];
+$description = $_POST['photoDesc'];
 
 //print_r($album_id . "\n");
 //print_r($user_id . "\n");
